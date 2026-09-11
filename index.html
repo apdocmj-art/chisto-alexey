@@ -113,11 +113,13 @@
   }
   .headrow{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px;}
   .brand{display:flex;align-items:center;gap:.6em;text-decoration:none;}
-  .brand-plate{
-    display:flex;align-items:center;background:#FFFFFF;border-radius:8px;
-    padding:6px 10px;box-shadow:var(--shadow);
+  .brand-text{
+    font-family:"Oswald",sans-serif;font-weight:700;line-height:1.02;
+    text-transform:uppercase;letter-spacing:.01em;
   }
-  .brand img{height:32px;width:auto;}
+  .brand-text span{display:block;}
+  .brand-text .b-top{color:var(--teal);font-size:.92rem;}
+  .brand-text .b-bottom{color:var(--ink);font-size:1rem;}
   nav{display:flex;gap:28px;}
   nav a{
     font-family:"Oswald",sans-serif;font-size:.85rem;font-weight:500;letter-spacing:.02em;
@@ -273,7 +275,7 @@
 <header>
   <div class="wrap headrow">
     <a class="brand" href="#top">
-      <span class="brand-plate"><img src="images/logo.png" alt="Чисто Алексей"></span>
+      <span class="brand-text"><span class="b-top">Чисто</span><span class="b-bottom">Алексей</span></span>
     </a>
     <nav>
       <a href="#services">Услуги и цены</a>
@@ -331,7 +333,7 @@
         </figure>
         <figure>
           <div class="frame"><img src="images/ba-leather-sofa.jpg" alt="Химчистка кожаного дивана экстрактором"></div>
-          <figcaption><b>Кожаный диван.</b> Глубокая экстракторная чистка</figcaption>
+          <figcaption><b>Кожаный диван.</b> Глубокая экстракторная чиста</figcaption>
         </figure>
         <figure>
           <div class="frame"><img src="images/ba-curtain.jpg" alt="Химчистка штор на дому"></div>
@@ -353,7 +355,7 @@
         </div>
         <div class="why-item">
           <span class="num">02</span>
-          <div><h3>Работа на месте</h3><p>Мебель не увозят — экстракторная чистка проходит у вас дома, без простоя без дивана на несколько дней.</p></div>
+          <div><h3>Работа на месте</h3><p>Мебель не увозят — экстракторная чиста проходит у вас дома, без простоя без дивана на несколько дней.</p></div>
         </div>
         <div class="why-item">
           <span class="num">03</span>
@@ -390,7 +392,7 @@
             <div class="price-leader"></div><span class="price-num">2 500 ₽</span>
           </div>
           <div class="price-row">
-            <div class="price-meta"><span class="price-name">Химчистка кресла</span><span class="price-desc">Глубокая чистка обивки</span></div>
+            <div class="price-meta"><span class="price-name">Химчистка кресла</span><span class="price-desc">Глубокая чиста обивки</span></div>
             <div class="price-leader"></div><span class="price-num">1 000 ₽</span>
           </div>
           <div class="price-row">
@@ -448,7 +450,7 @@
         <div class="steps">
           <div class="step"><span class="n">1</span><div><h3>Заявка</h3><p>Описываете, что нужно почистить — диван, матрас, кресло или шторы.</p></div></div>
           <div class="step"><span class="n">2</span><div><h3>Осмотр и цена</h3><p>Алексей оценивает степень загрязнения на месте и называет точную стоимость.</p></div></div>
-          <div class="step"><span class="n">3</span><div><h3>Химчистка на месте</h3><p>Экстракторная чистка обивки без вывоза мебели из квартиры.</p></div></div>
+          <div class="step"><span class="n">3</span><div><h3>Химчистка на месте</h3><p>Экстракторная чиста обивки без вывоза мебели из квартиры.</p></div></div>
           <div class="step"><span class="n">4</span><div><h3>Приёмка результата</h3><p>Вы сразу видите результат и, при необходимости, фотоотчёт до/после.</p></div></div>
         </div>
       </div>
