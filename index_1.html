@@ -1,0 +1,519 @@
+<title>Чисто Алексей</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B3153;
+    --navy-deep:#082441;
+    --teal:#18B4B0;
+    --teal-deep:#0F8E8B;
+    --bg:#F4FAF9;
+    --surface:#FFFFFF;
+    --ink:#0B2E4F;
+    --ink-soft:#4D6670;
+    --ink-faint:#7C929A;
+    --line:#DCE9E7;
+    --badge-bg:#14181B;
+    --badge-fg:#FFFFFF;
+    --shadow: 0 1px 2px rgba(9,42,58,.06), 0 10px 30px -14px rgba(9,42,58,.22);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#08202F;
+      --surface:#0E2C40;
+      --ink:#EAF4F3;
+      --ink-soft:#A9C4C2;
+      --ink-faint:#7C9A98;
+      --line:#1B4457;
+      --navy:#0F3F63;
+      --navy-deep:#0A2B45;
+      --teal:#2FD0CA;
+      --teal-deep:#22B0AB;
+      --badge-bg:#04141C;
+      --badge-fg:#EAF4F3;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 18px 40px -18px rgba(0,0,0,.55);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#08202F;
+    --surface:#0E2C40;
+    --ink:#EAF4F3;
+    --ink-soft:#A9C4C2;
+    --ink-faint:#7C9A98;
+    --line:#1B4457;
+    --navy:#0F3F63;
+    --navy-deep:#0A2B45;
+    --teal:#2FD0CA;
+    --teal-deep:#22B0AB;
+    --badge-bg:#04141C;
+    --badge-fg:#EAF4F3;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 18px 40px -18px rgba(0,0,0,.55);
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Manrope",-apple-system,"Segoe UI",sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:"Oswald","Arial Narrow",sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.01em;
+    text-wrap:balance;
+    margin:0;
+    color:var(--navy);
+  }
+  :root[data-theme="dark"] h1, :root[data-theme="dark"] h2, :root[data-theme="dark"] h3{color:var(--ink);}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) h1,:root:not([data-theme="light"]) h2,:root:not([data-theme="light"]) h3{color:var(--ink);}}
+  p{margin:0;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding-inline:20px;}
+  .copy{max-width:640px;}
+  .eyebrow{
+    font-family:"Oswald",sans-serif;
+    font-size:.78rem;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--teal-deep);
+  }
+  :root[data-theme="dark"] .eyebrow{color:var(--teal);}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .eyebrow{color:var(--teal);}}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:.5em;
+    font-family:"Oswald",sans-serif;
+    font-weight:600;font-size:.95rem;letter-spacing:.03em;text-transform:uppercase;
+    padding:.85em 1.5em;border-radius:8px;border:1px solid transparent;
+    text-decoration:none;cursor:pointer;white-space:nowrap;
+  }
+  .btn-primary{background:var(--teal);color:#062A2A;}
+  .btn-primary:hover{background:var(--teal-deep);}
+  .btn-ghost{background:transparent;color:var(--navy);border-color:var(--line);}
+  :root[data-theme="dark"] .btn-ghost{color:var(--ink);}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn-ghost{color:var(--ink);}}
+  .btn-ghost:hover{border-color:var(--teal);}
+
+  /* header */
+  header{
+    position:sticky;top:0;z-index:20;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .headrow{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px;}
+  .brand{display:flex;align-items:center;gap:.6em;text-decoration:none;}
+  .brand-plate{
+    display:flex;align-items:center;background:#FFFFFF;border-radius:8px;
+    padding:6px 10px;box-shadow:var(--shadow);
+  }
+  .brand img{height:32px;width:auto;}
+  nav{display:flex;gap:28px;}
+  nav a{
+    font-family:"Oswald",sans-serif;font-size:.85rem;font-weight:500;letter-spacing:.02em;
+    text-transform:uppercase;text-decoration:none;color:var(--ink-soft);
+  }
+  nav a:hover{color:var(--teal-deep);}
+  @media (max-width:760px){ nav{display:none;} }
+
+  /* hero */
+  .hero{padding-block:52px 8px;}
+  .hero-top{display:flex;flex-direction:column;gap:18px;max-width:760px;}
+  .hero h1{font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.06;}
+  .hero .lede{font-size:1.08rem;color:var(--ink-soft);max-width:560px;}
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px;}
+
+  .hero-photo{
+    margin-top:34px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);
+    position:relative;border:1px solid var(--line);
+  }
+  .hero-photo img{width:100%;height:clamp(220px,38vw,420px);object-fit:cover;}
+  .hero-cap{
+    position:absolute;left:16px;bottom:16px;
+    background:color-mix(in srgb, var(--badge-bg) 82%, transparent);
+    color:var(--badge-fg);font-family:"Oswald",sans-serif;font-size:.78rem;
+    letter-spacing:.04em;text-transform:uppercase;padding:.5em .9em;border-radius:6px;
+  }
+
+  /* trust row */
+  .trust{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    margin-top:40px;
+  }
+  .trust div{background:var(--surface);padding:22px 20px;}
+  .trust b{display:block;font-family:"Oswald",sans-serif;font-size:1.02rem;color:var(--navy);margin-bottom:4px;text-transform:none;letter-spacing:0;}
+  :root[data-theme="dark"] .trust b{color:var(--ink);}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .trust b{color:var(--ink);}}
+  .trust span{font-size:.88rem;color:var(--ink-soft);}
+  @media (max-width:760px){.trust{grid-template-columns:1fr 1fr;}}
+  @media (max-width:440px){.trust{grid-template-columns:1fr;}}
+
+  section{padding-block:76px;}
+  .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:36px;flex-wrap:wrap;}
+  .section-head h2{font-size:clamp(1.5rem,2.6vw,2.1rem);}
+  .section-note{color:var(--ink-soft);max-width:360px;font-size:.92rem;}
+
+  /* stitch divider */
+  .stitch{height:14px;}
+  .stitch svg{display:block;width:100%;height:100%;}
+
+  /* before/after gallery */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .gallery figure{margin:0;}
+  .gallery .frame{border-radius:10px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);}
+  .gallery img{aspect-ratio:1/1;object-fit:cover;width:100%;}
+  .gallery figcaption{margin-top:10px;font-size:.86rem;color:var(--ink-soft);}
+  .gallery figcaption b{color:var(--ink);font-weight:600;}
+  @media (max-width:900px){.gallery{grid-template-columns:1fr 1fr;}}
+  @media (max-width:460px){.gallery{grid-template-columns:1fr;}}
+
+  /* why us list */
+  .why{display:grid;grid-template-columns:1fr 1fr;gap:28px 40px;}
+  .why-item{display:flex;gap:16px;border-top:1px solid var(--line);padding-top:18px;}
+  .why-item .num{
+    font-family:"Oswald",sans-serif;font-weight:600;color:var(--teal-deep);font-size:.85rem;
+    min-width:2.4em;
+  }
+  :root[data-theme="dark"] .why-item .num{color:var(--teal);}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .why-item .num{color:var(--teal);}}
+  .why-item h3{font-size:1.02rem;text-transform:none;letter-spacing:0;margin-bottom:4px;font-family:"Manrope",sans-serif;font-weight:700;}
+  .why-item p{color:var(--ink-soft);font-size:.94rem;}
+  @media (max-width:700px){.why{grid-template-columns:1fr;}}
+
+  /* price board */
+  .price-groups{display:flex;flex-direction:column;gap:34px;}
+  .price-group h3{
+    font-size:.82rem;letter-spacing:.12em;color:var(--teal-deep);margin-bottom:14px;
+  }
+  :root[data-theme="dark"] .price-group h3{color:var(--teal);}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .price-group h3{color:var(--teal);}}
+  .price-row{
+    display:flex;align-items:baseline;gap:10px;padding-block:13px;border-bottom:1px solid var(--line);
+  }
+  .price-row:first-of-type{border-top:1px solid var(--line);}
+  .price-name{font-weight:700;font-size:1.02rem;white-space:nowrap;}
+  .price-desc{color:var(--ink-faint);font-size:.85rem;}
+  .price-leader{flex:1;border-bottom:1px dotted var(--ink-faint);min-width:20px;height:0;transform:translateY(-.4em);opacity:.6;}
+  .price-num{
+    font-family:"Manrope",sans-serif;font-variant-numeric:tabular-nums;font-weight:800;
+    font-size:1.05rem;white-space:nowrap;color:var(--navy);
+  }
+  :root[data-theme="dark"] .price-num{color:var(--teal);}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .price-num{color:var(--teal);}}
+  .price-meta{display:flex;flex-direction:column;min-width:0;flex:1;}
+  .price-note{
+    margin-top:22px;font-size:.86rem;color:var(--ink-soft);
+    border-left:2px solid var(--teal);padding-left:12px;
+  }
+
+  /* process */
+  .process{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;}
+  .steps{display:flex;flex-direction:column;gap:0;}
+  .step{display:flex;gap:16px;padding-block:18px;border-top:1px solid var(--line);}
+  .step:last-child{border-bottom:1px solid var(--line);}
+  .step .n{font-family:"Oswald",sans-serif;font-size:1.4rem;font-weight:700;color:var(--line);min-width:1.4em;}
+  :root[data-theme="dark"] .step .n{color:var(--navy);}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .step .n{color:var(--navy);}}
+  .step h3{font-family:"Manrope",sans-serif;font-weight:700;text-transform:none;letter-spacing:0;font-size:1rem;margin-bottom:4px;}
+  .step p{color:var(--ink-soft);font-size:.92rem;}
+  .process-photo{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);}
+  .process-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;}
+  @media (max-width:800px){.process{grid-template-columns:1fr;}.process-photo{order:-1;max-height:320px;}.process-photo img{aspect-ratio:16/9;}}
+
+  /* faq */
+  .faq{display:flex;flex-direction:column;max-width:820px;}
+  .faq details{border-top:1px solid var(--line);padding-block:16px;}
+  .faq details:last-child{border-bottom:1px solid var(--line);}
+  .faq summary{
+    cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px;
+    align-items:center;font-size:1rem;
+  }
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{
+    content:"+";font-family:"Oswald",sans-serif;font-size:1.3rem;color:var(--teal-deep);flex-shrink:0;
+  }
+  :root[data-theme="dark"] .faq summary::after{color:var(--teal);}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .faq summary::after{color:var(--teal);}}
+  .faq details[open] summary::after{content:"–";}
+  .faq p{margin-top:12px;color:var(--ink-soft);font-size:.95rem;max-width:640px;}
+
+  /* contact */
+  .contact-band{
+    background:var(--navy);color:#EAF4F3;border-radius:18px;padding:44px;
+    display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;
+  }
+  .contact-band .eyebrow{color:var(--teal);}
+  .contact-band h2{color:#fff;}
+  .contact-band .lede{color:#C7DAD9;max-width:420px;font-size:.98rem;}
+  .contact-cols{display:flex;gap:48px;flex-wrap:wrap;}
+  .contact-cols dt{font-family:"Oswald",sans-serif;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:#7FD8D3;margin-bottom:6px;}
+  .contact-cols dd{margin:0 0 18px;font-size:1rem;}
+  .contact-cols .hint{font-size:.82rem;color:#9CBAB8;}
+  .contact-cta{display:flex;flex-direction:column;gap:10px;align-self:flex-start;}
+  .contact-band .btn-primary{color:#062A2A;}
+  .contact-band .btn-ghost{color:#fff;border-color:#2A5D77;}
+
+  footer{padding-block:36px;border-top:1px solid var(--line);}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:.85rem;color:var(--ink-faint);}
+  .foot-brand{display:flex;align-items:center;gap:.6em;background:#FFFFFF;border-radius:6px;padding:5px 8px;}
+  .foot-brand img{height:24px;}
+</style>
+
+<header>
+  <div class="wrap headrow">
+    <a class="brand" href="#top">
+      <span class="brand-plate"><img src="images/logo.png" alt="Чисто Алексей"></span>
+    </a>
+    <nav>
+      <a href="#services">Услуги и цены</a>
+      <a href="#results">Работы</a>
+      <a href="#process">Как это работает</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div class="hero-top">
+      <span class="eyebrow">Химчистка мебели на дому · Москва и Московская область</span>
+      <h1>Диван, матрас или кресло — снова чистые, прямо у вас дома</h1>
+      <p class="lede">Алексей приезжает сам, с профессиональным экстракторным оборудованием, и чистит мебель на месте — без вывоза и без химического запаха в квартире.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
+        <a class="btn btn-ghost" href="#services">Смотреть цены</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="images/hero-chair.jpg" alt="Алексей чистит кресло профессиональным экстрактором">
+      <span class="hero-cap">Реальный выезд · Химчистка Алексей</span>
+    </div>
+
+    <div class="trust">
+      <div><b>Лично мастер</b><span>Работаете напрямую с Алексеем — без колл-центра и подрядчиков</span></div>
+      <div><b>10 услуг в прайсе</b><span>Диваны, кресла, матрасы, шторы, кожаная мебель</span></div>
+      <div><b>Фото до / после</b><span>Результат виден сразу — присылает фотоотчёт по каждому выезду</span></div>
+      <div><b>Цена по факту осмотра</b><span>Базовая стоимость в прайсе, точная — после оценки на месте</span></div>
+    </div>
+  </div>
+
+  <div class="wrap stitch" aria-hidden="true">
+    <svg viewBox="0 0 1120 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="1120" y2="7" stroke="var(--line)" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/></svg>
+  </div>
+
+  <section id="results">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Работы Алексея</h2>
+        <p class="section-note">Фото до и после с реальных выездов — без ретуши и подмены кадра.</p>
+      </div>
+      <div class="gallery">
+        <figure>
+          <div class="frame"><img src="images/ba-straight-sofa.jpg" alt="Прямой диван до и после химчистки"></div>
+          <figcaption><b>Диван 3‑местный.</b> Пятна на велюровой обивке</figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="images/ba-corner-sofa.jpg" alt="Угловой диван до и после химчистки"></div>
+          <figcaption><b>Угловой диван.</b> Въевшиеся пятна на сиденьях</figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="images/ba-leather-sofa.jpg" alt="Химчистка кожаного дивана экстрактором"></div>
+          <figcaption><b>Кожаный диван.</b> Глубокая экстракторная чистка</figcaption>
+        </figure>
+        <figure>
+          <div class="frame"><img src="images/ba-curtain.jpg" alt="Химчистка штор на дому"></div>
+          <figcaption><b>Шторы.</b> Химчистка на дому, без снятия карниза</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="why" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Почему обращаются к Алексею</h2>
+      </div>
+      <div class="why">
+        <div class="why-item">
+          <span class="num">01</span>
+          <div><h3>Мастер, а не диспетчер</h3><p>Заявку принимает и выезд делает один и тот же человек — Алексей. Никакой передачи между операторами и субподрядчиками.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="num">02</span>
+          <div><h3>Работа на месте</h3><p>Мебель не увозят — экстракторная чистка проходит у вас дома, без простоя без дивана на несколько дней.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="num">03</span>
+          <div><h3>Средства без резкого запаха</h3><p>Составы подбираются под тип ткани или кожи и безопасны для детей и животных.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="num">04</span>
+          <div><h3>Честная цена</h3><p>В прайсе — базовая стоимость. Точную цифру Алексей называет на месте, после осмотра степени загрязнения.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Услуги и цены</h2>
+        <p class="section-note">Базовые цены ниже. Итоговая стоимость зависит от степени загрязнения и площади — уточняется мастером при выезде.</p>
+      </div>
+
+      <div class="price-groups">
+        <div class="price-group">
+          <h3>ДИВАНЫ И КРЕСЛА</h3>
+          <div class="price-row">
+            <div class="price-meta"><span class="price-name">Химчистка углового дивана</span><span class="price-desc">Все модули и подушки</span></div>
+            <div class="price-leader"></div><span class="price-num">3 800 ₽</span>
+          </div>
+          <div class="price-row">
+            <div class="price-meta"><span class="price-name">Диван 3‑местный (ткань)</span><span class="price-desc">Обивка, антибактериальная обработка</span></div>
+            <div class="price-leader"></div><span class="price-num">3 000 ₽</span>
+          </div>
+          <div class="price-row">
+            <div class="price-meta"><span class="price-name">Диван 2‑местный (ткань)</span><span class="price-desc">Освежение цвета и запаха</span></div>
+            <div class="price-leader"></div><span class="price-num">2 500 ₽</span>
+          </div>
+          <div class="price-row">
+            <div class="price-meta"><span class="price-name">Химчистка кресла</span><span class="price-desc">Глубокая чистка обивки</span></div>
+            <div class="price-leader"></div><span class="price-num">1 000 ₽</span>
+          </div>
+          <div class="price-row">
+            <div class="price-meta"><span class="price-name">Химчистка мягкого стула</span><span class="price-desc">Пятна, пыль, запах</span></div>
+            <div class="price-leader"></div><span class="price-num">400 ₽</span>
+          </div>
+        </div>
+
+        <div class="price-group">
+          <h3>МАТРАСЫ</h3>
+          <div class="price-row">
+            <div class="price-meta"><span class="price-name">Матрас 2‑спальный</span><span class="price-desc">Пыль, клещи, антибактериальная обработка</span></div>
+            <div class="price-leader"></div><span class="price-num">2 500 ₽</span>
+          </div>
+          <div class="price-row">
+            <div class="price-meta"><span class="price-name">Матрас 1‑спальный</span><span class="price-desc">Пятна, запахи, аллергены</span></div>
+            <div class="price-leader"></div><span class="price-num">1 500 ₽</span>
+          </div>
+        </div>
+
+        <div class="price-group">
+          <h3>КОЖА И ТЕКСТИЛЬ</h3>
+          <div class="price-row">
+            <div class="price-meta"><span class="price-name">Кожаная мебель</span><span class="price-desc">За одно посадочное место</span></div>
+            <div class="price-leader"></div><span class="price-num">1 500 ₽</span>
+          </div>
+          <div class="price-row">
+            <div class="price-meta"><span class="price-name">Химчистка штор</span><span class="price-desc">Цена за 1 м², с выездом</span></div>
+            <div class="price-leader"></div><span class="price-num">400 ₽</span>
+          </div>
+        </div>
+
+        <div class="price-group">
+          <h3>ДОПОЛНИТЕЛЬНО</h3>
+          <div class="price-row">
+            <div class="price-meta"><span class="price-name">Выведение пятен и запахов</span><span class="price-desc">Точечная обработка сложных загрязнений</span></div>
+            <div class="price-leader"></div><span class="price-num">500 ₽</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="price-note">Полный актуальный прайс — в карточке «Чисто Алексей» на Яндекс.Картах.</p>
+    </div>
+  </section>
+
+  <div class="wrap stitch" aria-hidden="true">
+    <svg viewBox="0 0 1120 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="1120" y2="7" stroke="var(--line)" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/></svg>
+  </div>
+
+  <section id="process">
+    <div class="wrap process">
+      <div>
+        <span class="eyebrow">Как проходит химчистка</span>
+        <h2 style="margin-top:10px;margin-bottom:22px;">Четыре шага от заявки до чистой мебели</h2>
+        <div class="steps">
+          <div class="step"><span class="n">1</span><div><h3>Заявка</h3><p>Описываете, что нужно почистить — диван, матрас, кресло или шторы.</p></div></div>
+          <div class="step"><span class="n">2</span><div><h3>Осмотр и цена</h3><p>Алексей оценивает степень загрязнения на месте и называет точную стоимость.</p></div></div>
+          <div class="step"><span class="n">3</span><div><h3>Химчистка на месте</h3><p>Экстракторная чистка обивки без вывоза мебели из квартиры.</p></div></div>
+          <div class="step"><span class="n">4</span><div><h3>Приёмка результата</h3><p>Вы сразу видите результат и, при необходимости, фотоотчёт до/после.</p></div></div>
+        </div>
+      </div>
+      <div class="process-photo">
+        <img src="images/hero-mattress.jpg" alt="Обработка матраса перед химчисткой">
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head"><h2>Частые вопросы</h2></div>
+      <div class="faq">
+        <details open>
+          <summary>Сколько сохнет мебель после химчистки?</summary>
+          <p>Зависит от материала, влажности и погоды — обычно от нескольких часов до суток. Алексей подскажет ориентировочное время сразу после обработки.</p>
+        </details>
+        <details>
+          <summary>Безопасно ли для детей и животных?</summary>
+          <p>Используются составы, подобранные под тип ткани или кожи, без резкого химического запаха — подходят для квартир с детьми и питомцами.</p>
+        </details>
+        <details>
+          <summary>Как рассчитывается итоговая цена?</summary>
+          <p>В прайсе указана базовая стоимость по типу мебели. Точная цена зависит от площади и степени загрязнения и называется на месте, до начала работ.</p>
+        </details>
+        <details>
+          <summary>Нужно ли что-то готовить к приезду мастера?</summary>
+          <p>Достаточно освободить доступ к мебели и убрать личные вещи из карманов дивана — остальное Алексей сделает сам.</p>
+        </details>
+        <details>
+          <summary>Работаете по всей Москве?</summary>
+          <p>Да, выезд по Москве. Точную возможность и время выезда в ваш район уточняйте при заявке.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts" style="padding-top:0;">
+    <div class="wrap">
+      <div class="contact-band">
+        <div class="copy">
+          <span class="eyebrow">Заявка на химчистку</span>
+          <h2 style="margin-top:10px;margin-bottom:14px;">Опишите, что нужно почистить — Алексей свяжется и назовёт цену</h2>
+          <p class="lede">Химчистка мебели на дому в Москве: диваны, кресла, матрасы, шторы и кожаная мебель.</p>
+        </div>
+        <div class="contact-cols">
+          <dl>
+            <dt>Адрес</dt>
+            <dd>Москва, Ярославская ул., 8, корп. 3</dd>
+            <dt>Заявка</dt>
+            <dd>WhatsApp / телефон<br><span class="hint">+7 (___) ___-__-__ — добавьте номер Алексея</span></dd>
+          </dl>
+          <div class="contact-cta">
+            <a class="btn btn-primary" href="#contacts">Написать в WhatsApp</a>
+            <a class="btn btn-ghost" href="#contacts">Профиль на Яндекс.Картах</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="foot-brand"><img src="images/logo.png" alt="Чисто Алексей"></div>
+    <span>Москва, Ярославская ул., 8, корп. 3 · Химчистка мебели на дому</span>
+  </div>
+</footer>
