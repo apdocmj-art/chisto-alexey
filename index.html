@@ -4,50 +4,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#0B3153;
-    --navy-deep:#082441;
-    --teal:#18B4B0;
-    --teal-deep:#0F8E8B;
-    --bg:#F4FAF9;
-    --surface:#FFFFFF;
-    --ink:#0B2E4F;
-    --ink-soft:#4D6670;
-    --ink-faint:#7C929A;
-    --line:#DCE9E7;
-    --badge-bg:#14181B;
-    --badge-fg:#FFFFFF;
-    --shadow: 0 1px 2px rgba(9,42,58,.06), 0 10px 30px -14px rgba(9,42,58,.22);
-    color-scheme: light;
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --bg:#08202F;
-      --surface:#0E2C40;
-      --ink:#EAF4F3;
-      --ink-soft:#A9C4C2;
-      --ink-faint:#7C9A98;
-      --line:#1B4457;
-      --navy:#0F3F63;
-      --navy-deep:#0A2B45;
-      --teal:#2FD0CA;
-      --teal-deep:#22B0AB;
-      --badge-bg:#04141C;
-      --badge-fg:#EAF4F3;
-      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 18px 40px -18px rgba(0,0,0,.55);
-      color-scheme: dark;
-    }
-  }
-  :root[data-theme="dark"]{
+    --navy:#0F3F63;
+    --navy-deep:#0A2B45;
+    --teal:#2FD0CA;
+    --teal-deep:#22B0AB;
     --bg:#08202F;
     --surface:#0E2C40;
     --ink:#EAF4F3;
     --ink-soft:#A9C4C2;
     --ink-faint:#7C9A98;
     --line:#1B4457;
-    --navy:#0F3F63;
-    --navy-deep:#0A2B45;
-    --teal:#2FD0CA;
-    --teal-deep:#22B0AB;
     --badge-bg:#04141C;
     --badge-fg:#EAF4F3;
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 18px 40px -18px rgba(0,0,0,.55);
@@ -70,10 +36,8 @@
     letter-spacing:.01em;
     text-wrap:balance;
     margin:0;
-    color:var(--navy);
+    color:var(--ink);
   }
-  :root[data-theme="dark"] h1, :root[data-theme="dark"] h2, :root[data-theme="dark"] h3{color:var(--ink);}
-  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) h1,:root:not([data-theme="light"]) h2,:root:not([data-theme="light"]) h3{color:var(--ink);}}
   p{margin:0;}
   a{color:inherit;}
   img{max-width:100%;display:block;}
@@ -85,10 +49,8 @@
     font-weight:600;
     letter-spacing:.14em;
     text-transform:uppercase;
-    color:var(--teal-deep);
+    color:var(--teal);
   }
-  :root[data-theme="dark"] .eyebrow{color:var(--teal);}
-  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .eyebrow{color:var(--teal);}}
 
   .btn{
     display:inline-flex;align-items:center;gap:.5em;
@@ -99,9 +61,7 @@
   }
   .btn-primary{background:var(--teal);color:#062A2A;}
   .btn-primary:hover{background:var(--teal-deep);}
-  .btn-ghost{background:transparent;color:var(--navy);border-color:var(--line);}
-  :root[data-theme="dark"] .btn-ghost{color:var(--ink);}
-  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .btn-ghost{color:var(--ink);}}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line);}
   .btn-ghost:hover{border-color:var(--teal);}
 
   /* header */
@@ -121,6 +81,12 @@
   .brand-text span{display:block;}
   .brand-text .b-top{color:var(--teal);font-size:.92rem;}
   .brand-text .b-bottom{color:var(--ink);font-size:1rem;}
+  .brand-logo-wrap{height:34px;width:90px;overflow:hidden;position:relative;display:block;}
+  .brand-logo-wrap img{position:absolute;top:-34px;left:-6px;height:103px;width:103px;max-width:none;}
+  @media (max-width:760px){
+    .brand-logo-wrap{height:27px;width:72px;}
+    .brand-logo-wrap img{top:-27px;left:-5px;height:82px;width:82px;}
+  }
   nav{display:flex;gap:28px;}
   nav a{
     font-family:"Oswald",sans-serif;font-size:.85rem;font-weight:500;letter-spacing:.02em;
@@ -130,11 +96,33 @@
   @media (max-width:760px){ nav{display:none;} }
 
   /* hero */
-  .hero{padding-block:52px 8px;}
-  .hero-top{display:flex;flex-direction:column;gap:18px;max-width:760px;}
-  .hero h1{font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.06;}
+  .hero{padding-block:52px 8px;position:relative;}
+  .hero-top{display:flex;flex-direction:column;gap:18px;max-width:760px;position:relative;z-index:1;}
+  .hero h1{font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.16;}
   .hero .lede{font-size:1.08rem;color:var(--ink-soft);max-width:560px;}
   .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px;}
+
+  .mark{
+    background:color-mix(in srgb, var(--teal) 24%, transparent);
+    box-decoration-break:clone;-webkit-box-decoration-break:clone;
+    padding:.05em .22em;border-radius:.3em;
+  }
+
+  /* soap bubbles decoration */
+  .bubbles{position:absolute;inset:0;pointer-events:none;z-index:-1;}
+  .bubble{
+    position:absolute;border-radius:50%;
+    background:
+      radial-gradient(circle at 30% 26%, rgba(255,255,255,.85), rgba(255,255,255,0) 22%),
+      radial-gradient(circle, transparent 55%, rgba(127,216,211,.5) 85%, rgba(127,216,211,.15) 95%, transparent 100%);
+    border:1px solid rgba(255,255,255,.35);
+    box-shadow:inset 0 -6px 8px -6px rgba(255,255,255,.6), 0 6px 20px -10px rgba(0,0,0,.4);
+  }
+  .hero .bubbles .bubble:nth-child(1){width:120px;height:120px;top:-30px;right:6%;}
+  .hero .bubbles .bubble:nth-child(2){width:46px;height:46px;top:46%;right:2%;}
+  .hero .bubbles .bubble:nth-child(3){width:30px;height:30px;top:16%;right:22%;}
+  .hero .bubbles .bubble:nth-child(4){width:76px;height:76px;top:64%;right:16%;}
+  @media (max-width:760px){.hero .bubbles .bubble{display:none;}.hero .bubbles .bubble:nth-child(1){display:block;width:64px;height:64px;top:-10px;right:4%;}}
 
   .hero-photo{
     margin-top:34px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);
@@ -155,9 +143,7 @@
     margin-top:40px;
   }
   .trust div{background:var(--surface);padding:22px 20px;}
-  .trust b{display:block;font-family:"Oswald",sans-serif;font-size:1.02rem;color:var(--navy);margin-bottom:4px;text-transform:none;letter-spacing:0;}
-  :root[data-theme="dark"] .trust b{color:var(--ink);}
-  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .trust b{color:var(--ink);}}
+  .trust b{display:block;font-family:"Oswald",sans-serif;font-size:1.02rem;color:var(--ink);margin-bottom:4px;text-transform:none;letter-spacing:0;}
   .trust span{font-size:.88rem;color:var(--ink-soft);}
   @media (max-width:760px){.trust{grid-template-columns:1fr 1fr;}}
   @media (max-width:440px){.trust{grid-template-columns:1fr;}}
@@ -185,11 +171,12 @@
   .why{display:grid;grid-template-columns:1fr 1fr;gap:28px 40px;}
   .why-item{display:flex;gap:16px;border-top:1px solid var(--line);padding-top:18px;}
   .why-item .num{
-    font-family:"Oswald",sans-serif;font-weight:600;color:var(--teal-deep);font-size:.85rem;
-    min-width:2.4em;
+    font-family:"Oswald",sans-serif;font-weight:700;color:var(--teal);font-size:.8rem;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    width:2.2em;height:2.2em;border-radius:50%;
+    background:color-mix(in srgb, var(--teal) 14%, transparent);
+    border:1px solid color-mix(in srgb, var(--teal) 30%, transparent);
   }
-  :root[data-theme="dark"] .why-item .num{color:var(--teal);}
-  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .why-item .num{color:var(--teal);}}
   .why-item h3{font-size:1.02rem;text-transform:none;letter-spacing:0;margin-bottom:4px;font-family:"Manrope",sans-serif;font-weight:700;}
   .why-item p{color:var(--ink-soft);font-size:.94rem;}
   @media (max-width:700px){.why{grid-template-columns:1fr;}}
@@ -197,10 +184,8 @@
   /* price board */
   .price-groups{display:flex;flex-direction:column;gap:34px;}
   .price-group h3{
-    font-size:.82rem;letter-spacing:.12em;color:var(--teal-deep);margin-bottom:14px;
+    font-size:.82rem;letter-spacing:.12em;color:var(--teal);margin-bottom:14px;
   }
-  :root[data-theme="dark"] .price-group h3{color:var(--teal);}
-  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .price-group h3{color:var(--teal);}}
   .price-row{
     display:flex;align-items:baseline;gap:10px;padding-block:13px;border-bottom:1px solid var(--line);
   }
@@ -210,10 +195,8 @@
   .price-leader{flex:1;border-bottom:1px dotted var(--ink-faint);min-width:20px;height:0;transform:translateY(-.4em);opacity:.6;}
   .price-num{
     font-family:"Manrope",sans-serif;font-variant-numeric:tabular-nums;font-weight:800;
-    font-size:1.05rem;white-space:nowrap;color:var(--navy);
+    font-size:1.05rem;white-space:nowrap;color:var(--teal);
   }
-  :root[data-theme="dark"] .price-num{color:var(--teal);}
-  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .price-num{color:var(--teal);}}
   .price-meta{display:flex;flex-direction:column;min-width:0;flex:1;}
   .price-note{
     margin-top:22px;font-size:.86rem;color:var(--ink-soft);
@@ -225,9 +208,7 @@
   .steps{display:flex;flex-direction:column;gap:0;}
   .step{display:flex;gap:16px;padding-block:18px;border-top:1px solid var(--line);}
   .step:last-child{border-bottom:1px solid var(--line);}
-  .step .n{font-family:"Oswald",sans-serif;font-size:1.4rem;font-weight:700;color:var(--line);min-width:1.4em;}
-  :root[data-theme="dark"] .step .n{color:var(--navy);}
-  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .step .n{color:var(--navy);}}
+  .step .n{font-family:"Oswald",sans-serif;font-size:1.4rem;font-weight:700;color:var(--navy);min-width:1.4em;}
   .step h3{font-family:"Manrope",sans-serif;font-weight:700;text-transform:none;letter-spacing:0;font-size:1rem;margin-bottom:4px;}
   .step p{color:var(--ink-soft);font-size:.92rem;}
   .process-photo{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);}
@@ -244,10 +225,8 @@
   }
   .faq summary::-webkit-details-marker{display:none;}
   .faq summary::after{
-    content:"+";font-family:"Oswald",sans-serif;font-size:1.3rem;color:var(--teal-deep);flex-shrink:0;
+    content:"+";font-family:"Oswald",sans-serif;font-size:1.3rem;color:var(--teal);flex-shrink:0;
   }
-  :root[data-theme="dark"] .faq summary::after{color:var(--teal);}
-  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .faq summary::after{color:var(--teal);}}
   .faq details[open] summary::after{content:"–";}
   .faq p{margin-top:12px;color:var(--ink-soft);font-size:.95rem;max-width:640px;}
 
@@ -255,7 +234,21 @@
   .contact-band{
     background:var(--navy);color:#EAF4F3;border-radius:18px;padding:44px;
     display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;
+    position:relative;overflow:hidden;
   }
+  .contact-band > *:not(.bubbles){position:relative;z-index:1;}
+  .contact-band .bubbles{z-index:0;}
+  .contact-band .bubbles .bubble{
+    background:
+      radial-gradient(circle at 30% 26%, rgba(255,255,255,.95), rgba(255,255,255,0) 22%),
+      radial-gradient(circle, transparent 55%, rgba(127,216,211,.55) 85%, rgba(127,216,211,.15) 95%, transparent 100%);
+    border-color:rgba(255,255,255,.4);
+    box-shadow:inset 0 -6px 8px -6px rgba(255,255,255,.4), 0 6px 20px -10px rgba(0,0,0,.4);
+  }
+  .contact-band .bubbles .bubble:nth-child(1){width:130px;height:130px;top:-40px;left:6%;}
+  .contact-band .bubbles .bubble:nth-child(2){width:44px;height:44px;top:30%;right:26%;}
+  .contact-band .bubbles .bubble:nth-child(3){width:90px;height:90px;bottom:-30px;right:6%;}
+  @media (max-width:760px){.contact-band .bubbles .bubble:nth-child(2){display:none;}}
   .contact-band .eyebrow{color:var(--teal);}
   .contact-band h2{color:#fff;}
   .contact-band .lede{color:#C7DAD9;max-width:420px;font-size:.98rem;}
@@ -276,7 +269,7 @@
 <header>
   <div class="wrap headrow">
     <a class="brand" href="#top">
-      <span class="brand-text"><span class="b-top">Чисто</span><span class="b-bottom">Алексей</span></span>
+      <span class="brand-logo-wrap"><img src="images/logo.png" alt="Чисто Алексей"></span>
     </a>
     <nav>
       <a href="#services">Услуги и цены</a>
@@ -291,9 +284,10 @@
 
 <main id="top">
   <div class="wrap hero">
+    <div class="bubbles" aria-hidden="true"><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span></div>
     <div class="hero-top">
       <span class="eyebrow">Химчистка мебели на дому · Москва и Московская область</span>
-      <h1>Диван, матрас или кресло — снова чистые, прямо у вас дома</h1>
+      <h1>Диван, матрас или кресло — <span class="mark">снова чистые</span>, прямо у вас дома</h1>
       <p class="lede">Алексей приезжает сам, с профессиональным экстракторным оборудованием, и чистит мебель на месте — без вывоза и без химического запаха в квартире.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#contacts">Оставить заявку</a>
@@ -492,6 +486,7 @@
   <section id="contacts" style="padding-top:0;">
     <div class="wrap">
       <div class="contact-band">
+        <div class="bubbles" aria-hidden="true"><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span></div>
         <div class="copy">
           <span class="eyebrow">Заявка на химчистку</span>
           <h2 style="margin-top:10px;margin-bottom:14px;">Опишите, что нужно почистить — Алексей свяжется и назовёт цену</h2>
