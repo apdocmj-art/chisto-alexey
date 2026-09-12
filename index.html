@@ -305,6 +305,45 @@
   .foam-right .fb:nth-child(4){width:8px;height:8px;left:6px;animation-duration:12s;animation-delay:9.4s;--fb-drift:6px;}
   .foam-right .fb:nth-child(5){width:18px;height:18px;left:0px;animation-duration:20s;animation-delay:4s;--fb-drift:-5px;}
   @media (prefers-reduced-motion: reduce){.side-foam{display:none;}}
+
+  /* floating video widget */
+  .video-widget{position:fixed;right:20px;bottom:20px;z-index:40;}
+  .video-widget-btn{
+    position:relative;width:84px;height:84px;border-radius:50%;padding:0;border:3px solid #fff;
+    overflow:hidden;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.35);background:#0c2b2a;
+  }
+  .video-widget-btn::before{
+    content:"";position:absolute;inset:-8px;border-radius:50%;border:3px solid rgba(127,216,211,.65);
+    animation:vw-pulse 2.2s ease-out infinite;
+  }
+  .video-widget-btn video{width:100%;height:100%;object-fit:cover;display:block;border-radius:50%;}
+  .video-widget-badge{
+    position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);
+    background:#e8543f;color:#fff;font-size:11px;font-weight:700;line-height:1;
+    padding:4px 9px;border-radius:999px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.3);z-index:2;
+  }
+  @keyframes vw-pulse{
+    0%{transform:scale(.9);opacity:.9;}
+    70%{transform:scale(1.35);opacity:0;}
+    100%{transform:scale(1.35);opacity:0;}
+  }
+  .video-modal{
+    position:fixed;inset:0;background:rgba(10,20,20,.82);z-index:60;
+    display:flex;align-items:center;justify-content:center;padding:20px;
+    opacity:0;pointer-events:none;transition:opacity .2s ease;
+  }
+  .video-modal.open{opacity:1;pointer-events:auto;}
+  .video-modal-inner{position:relative;width:min(92vw,420px);}
+  .video-modal-inner video{width:100%;max-height:85vh;border-radius:14px;display:block;background:#000;}
+  .video-modal-close{
+    position:absolute;top:-40px;right:0;width:34px;height:34px;border-radius:50%;border:none;
+    background:rgba(255,255,255,.92);color:#0c2b2a;font-size:16px;cursor:pointer;
+  }
+  @media (max-width:600px){
+    .video-widget{right:14px;bottom:14px;}
+    .video-widget-btn{width:64px;height:64px;border-width:2px;}
+    .video-widget-badge{font-size:10px;padding:3px 7px;bottom:-6px;}
+  }
 </style>
 </head>
 <body>
@@ -561,5 +600,37 @@
     <span>Москва, Ярославская ул., 8, корп. 3 · Химчистка мебели на дому</span>
   </div>
 </footer>
+<div class="video-widget">
+  <button class="video-widget-btn" id="vwOpen" aria-label="Смотреть видео работы Алексея">
+    <span class="video-widget-badge">Видео</span>
+    <video src="video/work-video.mp4" poster="video/poster.jpg" muted loop autoplay playsinline></video>
+  </button>
+</div>
+<div class="video-modal" id="vwModal">
+  <div class="video-modal-inner">
+    <button class="video-modal-close" id="vwClose" aria-label="Закрыть">&#10005;</button>
+    <video id="vwMainVideo" src="video/work-video.mp4" poster="video/poster.jpg" controls playsinline></video>
+  </div>
+</div>
+<script>
+(function(){
+  var openBtn=document.getElementById('vwOpen');
+  var modal=document.getElementById('vwModal');
+  var closeBtn=document.getElementById('vwClose');
+  var mainVideo=document.getElementById('vwMainVideo');
+  openBtn.addEventListener('click',function(){
+    modal.classList.add('open');
+    mainVideo.currentTime=0;
+    mainVideo.play();
+  });
+  function closeModal(){
+    modal.classList.remove('open');
+    mainVideo.pause();
+  }
+  closeBtn.addEventListener('click',closeModal);
+  modal.addEventListener('click',function(e){ if(e.target===modal) closeModal(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal(); });
+})();
+</script>
 </body>
 </html>
