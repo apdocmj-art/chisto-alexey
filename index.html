@@ -567,6 +567,19 @@
     </div>
   </section>
 
+  <section id="reviews" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Отзывы</h2>
+        <p class="section-note">Реальные отзывы клиентов с Яндекс.Карт.</p>
+      </div>
+      <div style="display: flex; justify-content: center;margin-top: 20px;border-radius: 20px;">
+        <iframe title="Виджет с отзывами «Карусель» от MyReviews" style="width: 100%; height: 100%; max-width: 1170px; border: none; outline: none; padding: 0; margin: 0" id="myReviews__block-widget">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
   <section id="contacts" style="padding-top:0;">
     <div class="wrap">
       <div class="contact-band">
@@ -631,6 +644,28 @@
   modal.addEventListener('click',function(e){ if(e.target===modal) closeModal(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeModal(); });
 })();
+</script>
+<script src="https://myreviews.dev/widget/dist/blockWidget.js" defer></script>
+<script>
+    (function (){
+      var myReviewsInit = function () {
+        new window.myReviews.BlockWidget({
+        uuid: "27a08b3f-d376-4d02-b008-6cd9b63e08df",
+        name: "g6848305",
+        additionalFrame:"none",
+        lang:"ru",
+        widgetId: "1"
+        }).init();
+
+      };
+    if (document.readyState === "loading") {
+      document.addEventListener('DOMContentLoaded', function () {
+          myReviewsInit()
+      })
+    } else {
+      myReviewsInit()
+    }
+    })()
 </script>
 </body>
 </html>
