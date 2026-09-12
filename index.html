@@ -271,9 +271,46 @@
   .foot-row{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:.85rem;color:var(--ink-faint);}
   .foot-brand{display:flex;align-items:center;gap:.6em;background:var(--navy-deep);border-radius:6px;padding:5px 8px;}
   .foot-brand img{height:24px;}
+
+  /* side foam animation */
+  .side-foam{position:fixed;top:0;height:100vh;width:70px;pointer-events:none;z-index:5;overflow:hidden;}
+  .side-foam.foam-left{left:0;}
+  .side-foam.foam-right{right:0;}
+  .side-foam .fb{
+    position:absolute;bottom:-14vh;left:0;border-radius:50%;opacity:0;
+    background:
+      radial-gradient(circle at 30% 26%, rgba(255,255,255,.85), rgba(255,255,255,0) 22%),
+      radial-gradient(circle, transparent 55%, rgba(127,216,211,.5) 85%, rgba(127,216,211,.15) 95%, transparent 100%);
+    border:1px solid rgba(255,255,255,.3);
+    box-shadow:inset 0 -4px 6px -4px rgba(255,255,255,.5), 0 4px 14px -8px rgba(0,0,0,.4);
+    animation:foam-rise linear infinite;
+  }
+  @keyframes foam-rise{
+    0%{transform:translateY(0) translateX(0);opacity:0;}
+    8%{opacity:.6;}
+    88%{opacity:.5;}
+    100%{transform:translateY(-124vh) translateX(var(--fb-drift,14px));opacity:0;}
+  }
+  .foam-left .fb:nth-child(1){width:20px;height:20px;left:8px;animation-duration:13s;animation-delay:0s;--fb-drift:10px;}
+  .foam-left .fb:nth-child(2){width:34px;height:34px;left:30px;animation-duration:17s;animation-delay:3s;--fb-drift:16px;}
+  .foam-left .fb:nth-child(3){width:14px;height:14px;left:16px;animation-duration:10s;animation-delay:6.5s;--fb-drift:8px;}
+  .foam-left .fb:nth-child(4){width:26px;height:26px;left:2px;animation-duration:15s;animation-delay:9s;--fb-drift:-12px;}
+  .foam-right .fb:nth-child(1){width:24px;height:24px;left:36px;animation-duration:14s;animation-delay:1.5s;--fb-drift:-12px;}
+  .foam-right .fb:nth-child(2){width:16px;height:16px;left:14px;animation-duration:11s;animation-delay:5s;--fb-drift:8px;}
+  .foam-right .fb:nth-child(3){width:32px;height:32px;left:24px;animation-duration:18s;animation-delay:8s;--fb-drift:-16px;}
+  .foam-right .fb:nth-child(4){width:18px;height:18px;left:44px;animation-duration:12.5s;animation-delay:11s;--fb-drift:10px;}
+  @media (max-width:1150px){
+    .side-foam{width:20px;}
+    .side-foam .fb{transform:scale(.42);transform-origin:bottom left;}
+    .foam-left .fb{left:2px;}
+    .foam-right .fb{left:2px;}
+  }
+  @media (prefers-reduced-motion: reduce){.side-foam{display:none;}}
 </style>
 </head>
 <body>
+<div class="side-foam foam-left" aria-hidden="true"><span class="fb"></span><span class="fb"></span><span class="fb"></span><span class="fb"></span></div>
+<div class="side-foam foam-right" aria-hidden="true"><span class="fb"></span><span class="fb"></span><span class="fb"></span><span class="fb"></span></div>
 
 <header>
   <div class="wrap headrow">
