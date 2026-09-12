@@ -117,14 +117,23 @@
   .mark-dirty{
     position:absolute;inset:0;z-index:2;
     padding:.05em .22em;box-sizing:border-box;
-    color:#8a7355;
-    text-shadow:0 1px 0 rgba(0,0,0,.25), 0 0 6px rgba(60,45,25,.35);
+    color:transparent;
+    background-clip:text;-webkit-background-clip:text;
+    text-shadow:0 1px 0 rgba(0,0,0,.3);
     background-image:
-      radial-gradient(circle at 15% 32%, rgba(50,35,20,.4) 0 3px, transparent 4px),
-      radial-gradient(circle at 38% 72%, rgba(50,35,20,.35) 0 2px, transparent 3px),
-      radial-gradient(circle at 62% 22%, rgba(50,35,20,.38) 0 2.5px, transparent 3.5px),
-      radial-gradient(circle at 84% 66%, rgba(50,35,20,.35) 0 2px, transparent 3px),
-      radial-gradient(circle at 26% 84%, rgba(50,35,20,.3) 0 2px, transparent 3px);
+      radial-gradient(circle at 8% 28%, rgba(12,8,4,.9) 0 5px, transparent 8px),
+      radial-gradient(circle at 15% 68%, rgba(95,72,34,.85) 0 4px, transparent 7px),
+      radial-gradient(ellipse 13px 8px at 27% 45%, rgba(18,12,6,.85) 0%, transparent 78%),
+      radial-gradient(circle at 34% 15%, rgba(105,80,38,.8) 0 3px, transparent 6px),
+      radial-gradient(circle at 43% 66%, rgba(22,15,7,.85) 0 5px, transparent 8px),
+      radial-gradient(ellipse 15px 9px at 54% 28%, rgba(100,76,36,.8) 0%, transparent 76%),
+      radial-gradient(circle at 62% 58%, rgba(15,10,5,.9) 0 4px, transparent 7px),
+      radial-gradient(circle at 71% 20%, rgba(90,68,32,.75) 0 3.5px, transparent 6.5px),
+      radial-gradient(ellipse 14px 7px at 80% 52%, rgba(20,13,6,.85) 0%, transparent 78%),
+      radial-gradient(circle at 90% 28%, rgba(105,80,38,.8) 0 3px, transparent 6px),
+      radial-gradient(circle at 95% 65%, rgba(18,12,6,.85) 0 4px, transparent 7px),
+      radial-gradient(circle at 3% 88%, rgba(85,64,30,.7) 0 3px, transparent 6px),
+      linear-gradient(#8a7355,#8a7355);
     background-repeat:no-repeat;
     clip-path:inset(0 0 0 0%);
     pointer-events:none;
