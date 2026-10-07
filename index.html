@@ -287,9 +287,18 @@
   .step .n{font-family:"Oswald",sans-serif;font-size:1.4rem;font-weight:700;color:var(--navy);min-width:1.4em;}
   .step h3{font-family:"Manrope",sans-serif;font-weight:700;text-transform:none;letter-spacing:0;font-size:1rem;margin-bottom:4px;}
   .step p{color:var(--ink-soft);font-size:.92rem;}
-  .process-photo{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);}
-  .process-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;}
-  @media (max-width:800px){.process{grid-template-columns:1fr;}.process-photo{order:-1;max-height:320px;}.process-photo img{aspect-ratio:16/9;}}
+  .process-collage{position:relative;width:100%;aspect-ratio:1/1.08;}
+  .pc-card{
+    position:absolute;margin:0;padding:6px;background:var(--surface);
+    border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 40px -14px rgba(0,0,0,.7);
+    transition:transform .35s ease,z-index 0s;
+  }
+  .pc-card img{display:block;width:100%;height:auto;border-radius:8px;}
+  .pc-a{width:78%;top:0;left:0;transform:rotate(-4deg);z-index:1;}
+  .pc-b{width:68%;top:47%;right:0;transform:rotate(3.5deg);z-index:2;}
+  .pc-c{width:33%;top:57%;left:5%;transform:rotate(-7deg);z-index:3;}
+  .pc-card:hover{transform:rotate(0) scale(1.04);z-index:5;}
+  @media (max-width:800px){.process{grid-template-columns:1fr;}.process-collage{order:-1;max-width:520px;margin-inline:auto;}}
 
   /* faq */
   .faq{display:flex;flex-direction:column;max-width:820px;}
@@ -638,8 +647,10 @@
           <div class="step"><span class="n">4</span><div><h3>Приёмка результата</h3><p>Вы сразу видите результат и, при необходимости, фотоотчёт до/после.</p></div></div>
         </div>
       </div>
-      <div class="process-photo">
-        <img src="images/hero-mattress.jpg" alt="Обработка матраса перед химчисткой">
+      <div class="process-collage">
+        <figure class="pc-card pc-a"><img src="images/hero-mattress.jpg" alt="Алексей обрабатывает матрас перед химчисткой" width="1280" height="960" loading="lazy"></figure>
+        <figure class="pc-card pc-b"><img src="images/work-sofa.jpg" alt="Алексей чистит диван экстрактором" width="1200" height="675" loading="lazy"></figure>
+        <figure class="pc-card pc-c"><img src="images/work-dirty-water.jpg" alt="Грязная вода после химчистки" width="720" height="960" loading="lazy"></figure>
       </div>
     </div>
   </section>
