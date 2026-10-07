@@ -254,6 +254,27 @@
     font-size:1.05rem;white-space:nowrap;color:var(--teal);
   }
   .price-meta{display:flex;flex-direction:column;min-width:0;flex:1;}
+  @media (min-width:860px){.price-groups{display:grid;grid-template-columns:1fr 1fr;gap:28px 56px;align-items:start;}}
+  .price-num small{font-weight:600;font-size:.78em;color:var(--ink-faint);margin-right:2px;}
+  .price-unit{font-weight:600;font-size:.78em;color:var(--ink-faint);margin-left:2px;}
+  .price-extra{margin-top:44px;}
+  .price-extra h3{font-size:.82rem;letter-spacing:.12em;color:var(--teal);margin-bottom:14px;}
+  .extra-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .extra-card{
+    display:flex;flex-direction:column;justify-content:space-between;gap:10px;
+    padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:var(--surface);
+  }
+  .extra-wide{grid-column:1/-1;flex-direction:row;align-items:center;}
+  .extra-name{font-weight:700;font-size:.98rem;display:flex;flex-direction:column;gap:2px;}
+  .extra-name .price-desc{font-weight:400;}
+  .extra-num{font-family:"Manrope",sans-serif;font-variant-numeric:tabular-nums;font-weight:800;font-size:1.1rem;color:var(--teal);white-space:nowrap;}
+  .extra-num small{font-weight:600;font-size:.78em;color:var(--ink-faint);margin-right:2px;}
+  @media (max-width:860px){.extra-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:520px){.extra-grid{grid-template-columns:1fr;}.extra-card{flex-direction:row;align-items:center;}}
+  .price-perks{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding-top:24px;border-top:1px solid var(--line);}
+  .price-perks h4{font-family:"Manrope",sans-serif;font-weight:700;font-size:1rem;margin-bottom:4px;color:var(--ink);}
+  .price-perks p{color:var(--ink-soft);font-size:.9rem;}
+  @media (max-width:760px){.price-perks{grid-template-columns:1fr;gap:16px;}}
   .price-note{
     margin-top:22px;font-size:.86rem;color:var(--ink-soft);
     border-left:2px solid var(--teal);padding-left:12px;
@@ -410,10 +431,12 @@
   }
   .video-modal.open{opacity:1;pointer-events:auto;}
   .video-modal-inner{position:relative;width:min(92vw,420px);}
-  .video-modal-inner video{width:100%;max-height:85vh;border-radius:14px;display:block;background:#000;}
+  .video-modal-inner video{width:100%;max-height:calc(100vh - 140px);max-height:calc(100dvh - 140px);border-radius:14px;display:block;background:#000;}
   .video-modal-close{
-    position:absolute;top:-40px;right:0;width:34px;height:34px;border-radius:50%;border:none;
-    background:rgba(255,255,255,.92);color:#0c2b2a;font-size:16px;cursor:pointer;
+    position:fixed;top:calc(16px + env(safe-area-inset-top));right:16px;z-index:61;
+    width:44px;height:44px;border-radius:50%;border:none;
+    background:#fff;color:#0c2b2a;font-size:20px;font-weight:700;line-height:44px;padding:0;cursor:pointer;
+    box-shadow:0 4px 14px rgba(0,0,0,.45);
   }
   @media (max-width:600px){
     .video-widget{right:16px;bottom:16px;}
@@ -461,7 +484,7 @@
 
     <div class="trust">
       <div><b>Лично мастер</b><span>Работаете напрямую с Алексеем — без колл-центра и подрядчиков</span></div>
-      <div><b>10 услуг в прайсе</b><span>Диваны, кресла, матрасы, шторы, кожаная мебель</span></div>
+      <div><b>15 услуг в прайсе</b><span>Диваны, кресла, стулья, матрасы, шторы, ковры, конвекторы</span></div>
       <div><b>Фото до / после</b><span>Результат виден сразу — присылает фотоотчёт по каждому выезду</span></div>
       <div><b>Цена по факту осмотра</b><span>Базовая стоимость в прайсе, точная — после оценки на месте</span></div>
     </div>
@@ -533,63 +556,71 @@
 
       <div class="price-groups">
         <div class="price-group">
-          <h3>ДИВАНЫ И КРЕСЛА</h3>
+          <h3>МЯГКАЯ МЕБЕЛЬ</h3>
           <div class="price-row">
-            <div class="price-meta"><span class="price-name">Химчистка углового дивана</span><span class="price-desc">Все модули и подушки</span></div>
-            <span class="price-num">3 800 ₽</span>
+            <div class="price-meta"><span class="price-name">Двухместный диван</span></div>
+            <span class="price-num"><small>от</small> 5 000&nbsp;₽</span>
           </div>
           <div class="price-row">
-            <div class="price-meta"><span class="price-name">Диван 3‑местный (ткань)</span><span class="price-desc">Обивка, антибактериальная обработка</span></div>
-            <span class="price-num">3 000 ₽</span>
+            <div class="price-meta"><span class="price-name">Трёхместный диван</span></div>
+            <span class="price-num"><small>от</small> 6 000&nbsp;₽</span>
           </div>
           <div class="price-row">
-            <div class="price-meta"><span class="price-name">Диван 2‑местный (ткань)</span><span class="price-desc">Освежение цвета и запаха</span></div>
-            <span class="price-num">2 500 ₽</span>
+            <div class="price-meta"><span class="price-name">Угловой диван</span><span class="price-desc">4 посадочных места</span></div>
+            <span class="price-num"><small>от</small> 7 000&nbsp;₽</span>
           </div>
           <div class="price-row">
-            <div class="price-meta"><span class="price-name">Химчистка кресла</span><span class="price-desc">Глубокая чистка обивки</span></div>
-            <span class="price-num">1 000 ₽</span>
+            <div class="price-meta"><span class="price-name">Кресло</span></div>
+            <span class="price-num"><small>от</small> 3 000&nbsp;₽</span>
           </div>
           <div class="price-row">
-            <div class="price-meta"><span class="price-name">Химчистка мягкого стула</span><span class="price-desc">Пятна, пыль, запах</span></div>
-            <span class="price-num">400 ₽</span>
-          </div>
-        </div>
-
-        <div class="price-group">
-          <h3>МАТРАСЫ</h3>
-          <div class="price-row">
-            <div class="price-meta"><span class="price-name">Матрас 2‑спальный</span><span class="price-desc">Пыль, клещи, антибактериальная обработка</span></div>
-            <span class="price-num">2 500 ₽</span>
+            <div class="price-meta"><span class="price-name">Стул</span></div>
+            <span class="price-num"><small>от</small> 1 000&nbsp;₽</span>
           </div>
           <div class="price-row">
-            <div class="price-meta"><span class="price-name">Матрас 1‑спальный</span><span class="price-desc">Пятна, запахи, аллергены</span></div>
-            <span class="price-num">1 500 ₽</span>
+            <div class="price-meta"><span class="price-name">Офисный стул</span></div>
+            <span class="price-num"><small>от</small> 2 000&nbsp;₽</span>
           </div>
         </div>
 
         <div class="price-group">
-          <h3>КОЖА И ТЕКСТИЛЬ</h3>
+          <h3>ТЕКСТИЛЬ И ДРУГОЕ</h3>
           <div class="price-row">
-            <div class="price-meta"><span class="price-name">Кожаная мебель</span><span class="price-desc">За одно посадочное место</span></div>
-            <span class="price-num">1 500 ₽</span>
+            <div class="price-meta"><span class="price-name">Матрас</span><span class="price-desc">Одна сторона</span></div>
+            <span class="price-num"><small>от</small> 3 000&nbsp;₽<span class="price-unit">/сторона</span></span>
           </div>
           <div class="price-row">
-            <div class="price-meta"><span class="price-name">Химчистка штор</span><span class="price-desc">Цена за 1 м², с выездом</span></div>
-            <span class="price-num">400 ₽</span>
+            <div class="price-meta"><span class="price-name">Шторы</span><span class="price-desc">Без снятия, одна сторона</span></div>
+            <span class="price-num"><small>от</small> 500&nbsp;₽<span class="price-unit">/м²</span></span>
           </div>
-        </div>
-
-        <div class="price-group">
-          <h3>ДОПОЛНИТЕЛЬНО</h3>
           <div class="price-row">
-            <div class="price-meta"><span class="price-name">Выведение пятен и запахов</span><span class="price-desc">Точечная обработка сложных загрязнений</span></div>
-            <span class="price-num">500 ₽</span>
+            <div class="price-meta"><span class="price-name">Ковры</span></div>
+            <span class="price-num"><small>от</small> 300&nbsp;₽<span class="price-unit">/м²</span></span>
+          </div>
+          <div class="price-row">
+            <div class="price-meta"><span class="price-name">Внутрипольные конвекторы</span></div>
+            <span class="price-num"><small>от</small> 3 000&nbsp;₽<span class="price-unit">/м²</span></span>
           </div>
         </div>
       </div>
 
-      <p class="price-note">Полный актуальный прайс — в карточке «Чисто Алексей» на Яндекс.Картах.</p>
+      <div class="price-extra">
+        <h3>ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ</h3>
+        <div class="extra-grid">
+          <div class="extra-card"><span class="extra-name">Сушка</span><span class="extra-num">2 500&nbsp;₽<span class="price-unit">/час</span></span></div>
+          <div class="extra-card"><span class="extra-name">Антибактериальная обработка</span><span class="extra-num">+1 000&nbsp;₽</span></div>
+          <div class="extra-card"><span class="extra-name">Нейтрализация запахов</span><span class="extra-num"><small>от</small> 1 500&nbsp;₽</span></div>
+          <div class="extra-card"><span class="extra-name">Гидрофобная защита</span><span class="extra-num"><small>от</small> 15 000&nbsp;₽</span></div>
+          <div class="extra-card extra-wide"><span class="extra-name">Выведение сложных пятен<span class="price-desc">Кровь, вино, слайм, чернила, жир и другие загрязнения</span></span><span class="extra-num"><small>от</small> 500&nbsp;₽</span></div>
+        </div>
+        <p class="price-note">Мебель с обивкой из флока — <b>+100%</b> к стоимости.</p>
+      </div>
+
+      <div class="price-perks">
+        <div><h4>Безопасные средства</h4><p>Только качественная химия, безопасная для людей и домашних животных.</p></div>
+        <div><h4>Работаем с юрлицами</h4><p>Наличный и безналичный расчёт. Без НДС.</p></div>
+        <div><h4>Надёжный сервис</h4><p>Постоянно совершенствуем навыки — в практике нет ни одной нерешённой спорной ситуации.</p></div>
+      </div>
     </div>
   </section>
 
