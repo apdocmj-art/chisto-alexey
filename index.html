@@ -184,8 +184,7 @@
     margin-top:34px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);
     position:relative;border:1px solid var(--line);
   }
-  .hero-photo img{width:100%;height:clamp(260px,46vw,480px);object-fit:cover;object-position:center 38%;}
-  @media (max-width:520px){.hero-photo img{height:clamp(300px,88vw,420px);object-position:center 32%;}}
+  .hero-photo img{width:100%;height:auto;aspect-ratio:1679/937;object-fit:cover;display:block;}
   .hero-cap{
     position:absolute;left:16px;bottom:16px;
     background:color-mix(in srgb, var(--badge-bg) 82%, transparent);
@@ -478,8 +477,7 @@
       </div>
     </div>
     <div class="hero-photo">
-      <img src="images/hero-sofa.png" alt="Алексей чистит диван профессиональным экстрактором">
-      <span class="hero-cap">Реальный выезд · Химчистка Алексей</span>
+      <img src="images/hero-alexey.jpg" alt="Алексей — химчистка диванов, ковров, матрасов и штор" width="1679" height="937" fetchpriority="high">
     </div>
 
     <div class="trust">
