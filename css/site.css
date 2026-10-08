@@ -675,3 +675,11 @@
   .rekv th{width:34%;color:var(--ink-faint);font-weight:600;}
   .rekv a,.legal-text a{color:var(--teal-deep);}
   @media (max-width:560px){.rekv th,.rekv td{display:block;width:auto;padding:4px 0;border:0}.rekv tr{display:block;padding:10px 0;border-bottom:1px solid var(--line);}}
+  .biz-tile .ph{background:none;padding:0;}
+  .biz-tile:first-child .ph{aspect-ratio:16/10 !important;}
+  .biz-tile:not(:first-child) .ph{aspect-ratio:4/3;}
+  .biz-tile .ph img{width:100%;height:100%;object-fit:cover;display:block;}
+  .biz-tile{transition:transform .25s ease, box-shadow .25s ease;}
+  .biz-tile:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
+  .biz-tile .ph img{height:auto;aspect-ratio:4/3;}
+  .biz-tile:first-child .ph img{aspect-ratio:16/10;}
