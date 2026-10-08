@@ -246,7 +246,7 @@
   .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
   .gallery figure{margin:0;}
   .gallery .frame{border-radius:10px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);}
-  .gallery img{aspect-ratio:1/1;object-fit:cover;width:100%;}
+  .gallery img{aspect-ratio:4/3;object-fit:cover;width:100%;height:auto;display:block;}
   .gallery figcaption{margin-top:10px;font-size:.86rem;color:var(--ink-soft);}
   .gallery figcaption b{color:var(--ink);font-weight:600;}
   @media (max-width:900px){.gallery{grid-template-columns:1fr 1fr;}}
