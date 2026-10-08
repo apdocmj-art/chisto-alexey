@@ -7,6 +7,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://chisto-alexey.ru"
 PHONE = "+7 999 966-22-11"
 TG = "https://t.me/Chisto_Alexey"
+ZAYAVKA = "https://t.me/m/kkPA_OlCYzhi"  # ссылка «Оставить заявку» (Telegram с готовым текстом)
 
 idx = (ROOT / "index.html").read_text(encoding="utf-8")
 FAVICON = re.search(r'<link rel="icon"[^>]*>', idx).group(0)
@@ -168,7 +169,7 @@ def page(s):
   <div class="wrap headrow">
     <a class="brand" href="index.html"><span class="brand-logo-wrap"><img src="images/logo.png" alt="Чисто Алексей"></span></a>
 {NAV}
-    <a class="btn btn-primary" href="index.html#contacts">Оставить заявку</a>
+    <a class="btn btn-primary" href="{ZAYAVKA}" target="_blank" rel="noopener">Оставить заявку</a>
   </div>
 </header>
 
@@ -181,7 +182,7 @@ def page(s):
         <h1>{esc(s["h1"])}</h1>
         <p class="lede">{esc(s["lede"])}</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="{TG}" target="_blank" rel="noopener">Узнать цену в Telegram</a>
+          <a class="btn btn-primary" href="{ZAYAVKA}" target="_blank" rel="noopener">Оставить заявку</a>
           <a class="btn btn-ghost" href="tel:+79999662211">{PHONE}</a>
         </div>
       </div>
@@ -239,7 +240,7 @@ def page(s):
     <div class="wrap svc-cta">
       <div><h2>Узнайте точную цену</h2><p>Пришлите фото в Telegram — Алексей ответит и предложит время выезда.</p></div>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="{TG}" target="_blank" rel="noopener">Написать в Telegram</a>
+        <a class="btn btn-primary" href="{ZAYAVKA}" target="_blank" rel="noopener">Оставить заявку</a>
         <a class="btn btn-ghost" href="tel:+79999662211">Позвонить</a>
       </div>
     </div>
