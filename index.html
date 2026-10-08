@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1008d">
+<link rel="stylesheet" href="css/site.css?v=1008e">
 </head>
 <body>
 <div class="side-foam foam-left" aria-hidden="true"><span class="fb"></span><span class="fb"></span><span class="fb"></span><span class="fb"></span><span class="fb"></span></div>
@@ -212,6 +212,7 @@
 
 
 
+
       <h3 class="svc-links-h">Подробнее об услугах</h3>
       <div class="svc-links">
         <a href="himchistka-divanov.html">Химчистка диванов</a>
@@ -397,6 +398,29 @@
     </div>
   </div>
 </footer>
+<div class="soap" id="soap" aria-hidden="true"></div>
+<script>
+(function(){
+  var box=document.getElementById('soap'); if(!box) return;
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var n = window.innerWidth < 700 ? 7 : 14;
+  for(var i=0;i<n;i++){
+    var w=document.createElement('div'); w.className='sb-wrap';
+    var b=document.createElement('div'); b.className='sb';
+    var size = 14 + Math.random()*46;
+    // по бокам чаще, чтобы не мешать тексту
+    var side = Math.random()<.5 ? Math.random()*14 : 86+Math.random()*14;
+    if(Math.random()<.25) side = 14+Math.random()*72;
+    w.style.left = side+'%';
+    w.style.setProperty('--sway',(3+Math.random()*4)+'s');
+    w.style.setProperty('--dx',(8+Math.random()*24)+'px');
+    b.style.width=b.style.height=size+'px';
+    b.style.setProperty('--dur',(10+Math.random()*12)+'s');
+    b.style.setProperty('--delay',(-Math.random()*20)+'s');
+    w.appendChild(b); box.appendChild(w);
+  }
+})();
+</script>
 <div class="mascot" id="mascot">
   <a class="mascot-link" href="news.html" aria-label="Новости Чисто Алексей"><img src="images/mascot-still.png" data-anim="images/mascot.webp" alt="Капелька, талисман «Чисто Алексей»" width="260" height="349"></a>
   <a class="mascot-bubble" href="news.html">Свежие новости Алексея!<small>Смотреть →</small><button class="mascot-close" type="button" aria-label="Скрыть">✕</button></a>
