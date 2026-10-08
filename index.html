@@ -209,6 +209,46 @@
   .section-head h2{font-size:clamp(1.5rem,2.6vw,2.1rem);}
   .section-note{color:var(--ink-soft);max-width:360px;font-size:.92rem;}
 
+  /* business + charity */
+  .biz{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:start;}
+  .biz-copy .lede{color:var(--ink-soft);margin-top:14px;max-width:520px;}
+  .biz-points{padding:0;margin:22px 0 26px;display:flex;flex-direction:column;gap:10px;}
+  .biz-points li{list-style:none;display:flex;gap:10px;align-items:flex-start;color:var(--ink);font-size:.97rem;}
+  .biz-points li::before{content:"";flex-shrink:0;width:8px;height:8px;margin-top:.5em;border-radius:50%;background:var(--teal);}
+  .biz-ctas{display:flex;gap:12px;flex-wrap:wrap;}
+  .biz-tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .biz-tile{margin:0;
+    border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  .biz-tile:first-child{grid-column:1/-1;}
+  .biz-tile .ph{
+    aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(120% 120% at 30% 20%, color-mix(in srgb,var(--teal) 16%,transparent), transparent 60%),var(--navy-deep);
+    color:var(--teal);
+  }
+  .biz-tile:not(:first-child) .ph{aspect-ratio:4/3;}
+  .biz-tile .ph svg{width:34%;max-width:110px;min-width:56px;height:auto;}
+  .biz-tile .ph img{width:100%;height:100%;object-fit:cover;display:block;}
+  .biz-tile .cap{padding:12px 14px;}
+  .biz-tile .cap b{display:block;font-size:.98rem;}
+  .biz-tile .cap span{color:var(--ink-soft);font-size:.86rem;}
+  @media (max-width:860px){.biz{grid-template-columns:1fr;}}
+  .charity{
+    display:flex;gap:22px;align-items:center;padding:26px 28px;border-radius:16px;
+    border:1px solid color-mix(in srgb,var(--teal) 35%,var(--line));
+    background:linear-gradient(120deg, color-mix(in srgb,var(--teal) 12%,var(--surface)), var(--surface) 60%);
+  }
+  .charity-ic{
+    flex-shrink:0;width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    background:color-mix(in srgb,var(--teal) 18%,transparent);color:var(--teal);
+  }
+  .charity-ic svg{width:32px;height:32px;}
+  .charity h2{font-size:clamp(1.3rem,2.2vw,1.7rem);margin:6px 0 6px;}
+  .charity p{color:var(--ink-soft);max-width:640px;}
+  .charity .btn{margin-left:auto;flex-shrink:0;}
+  @media (max-width:760px){.charity{flex-direction:column;align-items:flex-start;padding:22px;}.charity .btn{margin-left:0;}}
+
   /* stitch divider */
   .stitch{height:14px;}
   .stitch svg{display:block;width:100%;height:100%;}
@@ -467,6 +507,7 @@
     <nav>
       <a href="#services">Услуги и цены</a>
       <a href="#results">Работы</a>
+      <a href="#business">Для бизнеса</a>
       <a href="#process">Как это работает</a>
       <a href="#faq">Вопросы</a>
       <a href="#contacts">Контакты</a>
@@ -633,6 +674,31 @@
     </div>
   </section>
 
+  <section id="business" style="padding-top:0;">
+    <div class="wrap biz">
+      <div class="biz-copy">
+        <span class="eyebrow">Для бизнеса</span>
+        <h2 style="margin-top:10px;">Химчистка для офисов, ресторанов и кафе</h2>
+        <p class="lede">Чистим ковролин в офисах, диваны, кресла и стулья в ресторанах и кафе. Работаем с юридическими лицами.</p>
+        <ul class="biz-points">
+          <li>Ковролин и ковровые покрытия в офисах</li>
+          <li>Диваны, банкетки и кресла в залах ресторанов</li>
+          <li>Обеденные и офисные стулья — партиями</li>
+          <li>Наличный и безналичный расчёт, без НДС</li>
+        </ul>
+        <div class="biz-ctas">
+          <a class="btn btn-primary" href="https://t.me/Chisto_Alexey" target="_blank" rel="noopener">Обсудить заказ для компании</a>
+          <a class="btn btn-ghost" href="tel:+79999662211">+7 999 966-22-11</a>
+        </div>
+      </div>
+      <div class="biz-tiles">
+        <figure class="biz-tile"><div class="ph"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="14" width="48" height="36" rx="3"/><rect x="15" y="21" width="34" height="22" rx="2"/><path d="M8 18H4M8 26H4M8 34H4M8 42H4M56 18h4M56 26h4M56 34h4M56 42h4"/></svg></div><figcaption class="cap"><b>Офисы</b><span>Ковролин и ковровые покрытия</span></figcaption></figure>
+        <figure class="biz-tile"><div class="ph"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 30v-8a6 6 0 0 1 6-6h32a6 6 0 0 1 6 6v8"/><path d="M6 32a4 4 0 0 1 8 0v6h36v-6a4 4 0 0 1 8 0v12H6z"/><path d="M12 44v5M52 44v5"/></svg></div><figcaption class="cap"><b>Рестораны и кафе</b><span>Диваны и банкетки</span></figcaption></figure>
+        <figure class="biz-tile"><div class="ph"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10h24v22H20z"/><path d="M16 32h32v8H16z"/><path d="M20 40l-3 14M44 40l3 14"/></svg></div><figcaption class="cap"><b>Стулья и кресла</b><span>Обеденные и офисные</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
   <div class="wrap stitch" aria-hidden="true">
     <svg viewBox="0 0 1120 14" preserveAspectRatio="none"><line x1="0" y1="7" x2="1120" y2="7" stroke="var(--line)" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/></svg>
   </div>
@@ -681,6 +747,20 @@
           <summary>Работаете по Москве и Московской области?</summary>
           <p>Да, выезд по Москве и Московской области. Точную возможность и время выезда в ваш район уточните при заявке.</p>
         </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="charity" style="padding-top:0;">
+    <div class="wrap">
+      <div class="charity">
+        <div class="charity-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 10c0 5.65-7 10-7 10z"/></svg></div>
+        <div>
+          <span class="eyebrow">Благотворительность</span>
+          <h2>Бесплатная химчистка в детских домах</h2>
+          <p>Алексей бесплатно чистит мебель в детских домах. Если вы представляете детский дом — напишите, договоримся о выезде.</p>
+        </div>
+        <a class="btn btn-ghost" href="https://t.me/Chisto_Alexey" target="_blank" rel="noopener">Написать Алексею</a>
       </div>
     </div>
   </section>
