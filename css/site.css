@@ -525,8 +525,8 @@
   nav a.active{color:var(--teal);}
 
   /* mascot «Капелька» → news */
-  .mascot{position:fixed;left:14px;bottom:0;z-index:38;display:flex;align-items:flex-end;gap:0;pointer-events:none;}
-  .mascot-link{pointer-events:auto;display:block;width:118px;line-height:0;transform-origin:50% 100%;transition:transform .25s ease;}
+  .mascot{position:fixed;left:14px;bottom:8px;z-index:38;display:flex;align-items:flex-end;gap:0;pointer-events:none;}
+  .mascot-link{pointer-events:auto;display:block;width:92px;line-height:0;transform-origin:50% 100%;transition:transform .25s ease;}
   .mascot-link:hover{transform:scale(1.06) rotate(-2deg);}
   .mascot-link img{width:100%;height:auto;display:block;filter:drop-shadow(0 6px 14px rgba(0,0,0,.45));}
   .mascot-bubble{
@@ -545,11 +545,11 @@
   .mascot.hidden{display:none;}
   @media (max-width:600px){
     .mascot{left:6px;}
-    .mascot-link{width:84px;}
+    .mascot-link{width:66px;}
     .mascot-bubble{font-size:.78rem;padding:8px 26px 8px 11px;max-width:150px;}
   }
   @media (prefers-reduced-motion:reduce){.mascot-link,.mascot-bubble{transition:none;}}
   /* mascot in news hero */
   .news-hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;}
-  .news-hero-mascot{width:150px;height:auto;flex-shrink:0;margin-bottom:-10px;filter:drop-shadow(0 8px 18px rgba(0,0,0,.45));}
+  .news-hero-mascot{width:130px;height:auto;flex-shrink:0;margin-bottom:-10px;filter:drop-shadow(0 8px 18px rgba(0,0,0,.45));}
   @media (max-width:600px){.news-hero-mascot{width:96px;}}
