@@ -683,3 +683,40 @@
   .biz-tile:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
   .biz-tile .ph img{height:auto;aspect-ratio:4/3;}
   .biz-tile:first-child .ph img{aspect-ratio:16/10;}
+
+  /* ===== мыльные пузыри: переливающиеся, заметные на светлом фоне ===== */
+  .bubble,.contact-band .bubbles .bubble,.sb{
+    background:
+      radial-gradient(circle at 32% 28%, rgba(255,255,255,.95) 0 9%, rgba(255,255,255,0) 22%),
+      radial-gradient(circle at 70% 75%, rgba(255,255,255,.55) 0 4%, rgba(255,255,255,0) 12%),
+      conic-gradient(from 200deg, rgba(47,208,202,.55), rgba(120,170,255,.5), rgba(255,140,210,.45), rgba(255,230,120,.45), rgba(47,208,202,.55));
+    -webkit-mask:radial-gradient(circle, transparent 58%, #000 72%);
+            mask:radial-gradient(circle, transparent 58%, #000 72%);
+    border:0;box-shadow:none;
+  }
+  .bubble::after,.sb::after{content:"";position:absolute;inset:0;border-radius:50%;
+    background:radial-gradient(circle at 32% 28%, rgba(255,255,255,.9) 0 8%, transparent 20%);}
+  .bubble{animation:bub-bob 6s ease-in-out infinite;}
+  .bubble:nth-child(2){animation-delay:-2s}.bubble:nth-child(3){animation-delay:-4s}.bubble:nth-child(4){animation-delay:-1s}
+  @keyframes bub-bob{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-12px) scale(1.04)}}
+
+  .soap{position:fixed;inset:0;pointer-events:none;z-index:3;overflow:hidden;}
+  .sb{position:absolute;bottom:-80px;border-radius:50%;opacity:0;
+      animation:sb-rise var(--dur,14s) linear var(--delay,0s) infinite;}
+  .sb-wrap{position:absolute;bottom:0;animation:sb-sway var(--sway,4s) ease-in-out infinite alternate;}
+  @keyframes sb-rise{
+    0%{transform:translateY(0) scale(.6);opacity:0}
+    8%{opacity:.95}
+    85%{opacity:.85}
+    100%{transform:translateY(calc(-100vh - 120px)) scale(1);opacity:0}
+  }
+  @keyframes sb-sway{from{transform:translateX(calc(var(--dx,20px) * -1))}to{transform:translateX(var(--dx,20px))}}
+  @media (prefers-reduced-motion:reduce){.soap{display:none}.bubble{animation:none}}
+  .bubble,.contact-band .bubbles .bubble,.sb{
+    background:
+      radial-gradient(circle at 32% 28%, rgba(255,255,255,.95) 0 9%, rgba(255,255,255,0) 22%),
+      conic-gradient(from 200deg, rgba(14,170,165,.85), rgba(80,140,255,.75), rgba(240,100,200,.7), rgba(255,200,60,.7), rgba(14,170,165,.85));
+    -webkit-mask:radial-gradient(circle, rgba(0,0,0,.12) 46%, #000 70%);
+            mask:radial-gradient(circle, rgba(0,0,0,.12) 46%, #000 70%);
+    filter:drop-shadow(0 2px 4px rgba(15,37,51,.15));
+  }
