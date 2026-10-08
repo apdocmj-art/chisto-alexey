@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1008e">
+<link rel="stylesheet" href="css/site.css?v=1008g">
 </head>
 <body>
 <div class="side-foam foam-left" aria-hidden="true"><span class="fb"></span><span class="fb"></span><span class="fb"></span><span class="fb"></span><span class="fb"></span></div>
@@ -202,6 +202,8 @@
         </div>
         <p class="price-note">Мебель с обивкой из флока: <b>+100%</b> к стоимости.</p>
       </div>
+
+
 
 
 
@@ -407,13 +409,13 @@
   for(var i=0;i<n;i++){
     var w=document.createElement('div'); w.className='sb-wrap';
     var b=document.createElement('div'); b.className='sb';
-    var size = 14 + Math.random()*46;
-    // по бокам чаще, чтобы не мешать тексту
-    var side = Math.random()<.5 ? Math.random()*14 : 86+Math.random()*14;
-    if(Math.random()<.25) side = 14+Math.random()*72;
+    var size = window.innerWidth < 700 ? 10 + Math.random()*22 : 14 + Math.random()*40;
+    // только по бокам, чтобы не мешать тексту
+    var edge = window.innerWidth < 700 ? 5 : 8;
+    var side = Math.random()<.5 ? Math.random()*edge : 100-edge+Math.random()*edge-3;
     w.style.left = side+'%';
     w.style.setProperty('--sway',(3+Math.random()*4)+'s');
-    w.style.setProperty('--dx',(8+Math.random()*24)+'px');
+    w.style.setProperty('--dx',(4+Math.random()*10)+'px');
     b.style.width=b.style.height=size+'px';
     b.style.setProperty('--dur',(10+Math.random()*12)+'s');
     b.style.setProperty('--delay',(-Math.random()*20)+'s');
