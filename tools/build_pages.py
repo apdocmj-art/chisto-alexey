@@ -7,6 +7,10 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://chisto-alexey.ru"
 PHONE = "+7 999 966-22-11"
 TG = "https://t.me/Chisto_Alexey"
+def back(href):
+    return ('<a class="back-btn" href="' + href + '" onclick="if(document.referrer.indexOf(location.host)>-1&amp;&amp;history.length>1){history.back();return false;}">'
+            '<span aria-hidden="true">←</span> Назад</a>')
+
 ZAYAVKA = "https://t.me/m/kkPA_OlCYzhi"  # ссылка «Оставить заявку» (Telegram с готовым текстом)
 
 idx = (ROOT / "index.html").read_text(encoding="utf-8")
@@ -170,7 +174,7 @@ def page(s):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1008g">
+<link rel="stylesheet" href="css/site.css?v=1008h">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 </head>
 <body>
@@ -183,7 +187,7 @@ def page(s):
 </header>
 
 <main>
-  <div class="wrap"><p class="crumbs"><a href="index.html">Главная</a> / {esc(s["menu"])}</p></div>
+  <div class="wrap crumbs-row">{back("index.html#svc-more")}<p class="crumbs"><a href="index.html">Главная</a> / {esc(s["menu"])}</p></div>
   <section>
     <div class="wrap svc-hero">
       <div>
@@ -287,7 +291,7 @@ def simple_page(slug, title, desc, h1, body):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1008g">
+<link rel="stylesheet" href="css/site.css?v=1008h">
 </head>
 <body>
 <header>
@@ -298,7 +302,7 @@ def simple_page(slug, title, desc, h1, body):
   </div>
 </header>
 <main>
-  <div class="wrap"><p class="crumbs"><a href="index.html">Главная</a> / {esc(h1)}</p></div>
+  <div class="wrap crumbs-row">{back("index.html")}<p class="crumbs"><a href="index.html">Главная</a> / {esc(h1)}</p></div>
   <section>
     <div class="wrap"><div class="svc-text legal-text">
       <h1 style="font-size:clamp(1.6rem,3vw,2.2rem);margin:0 0 20px;">{esc(h1)}</h1>
