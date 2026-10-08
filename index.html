@@ -339,6 +339,27 @@
     <span>Москва, Ярославская ул., 8, корп. 3 · Химчистка мебели на дому</span>
   </div>
 </footer>
+<div class="mascot" id="mascot">
+  <a class="mascot-link" href="news.html" aria-label="Новости Чисто Алексей"><img src="images/mascot-still.png" data-anim="images/mascot.webp" alt="Капелька — талисман «Чисто Алексей»" width="280" height="360"></a>
+  <a class="mascot-bubble" href="news.html">Свежие новости Алексея!<small>Смотреть →</small><button class="mascot-close" type="button" aria-label="Скрыть">✕</button></a>
+</div>
+<script>
+(function(){
+  var m=document.getElementById('mascot'); if(!m) return;
+  try{ if(sessionStorage.getItem('mascotHidden')){ m.classList.add('hidden'); return; } }catch(e){}
+  var img=m.querySelector('img');
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.addEventListener('load',function(){
+    if(!reduce){ var a=new Image(); a.onload=function(){ img.src=a.src; }; a.src=img.getAttribute('data-anim'); }
+    setTimeout(function(){ m.classList.add('show'); },2500);
+    if(window.innerWidth<=600) setTimeout(function(){ m.classList.remove('show'); },9000);
+  });
+  m.querySelector('.mascot-close').addEventListener('click',function(e){
+    e.preventDefault(); e.stopPropagation(); m.classList.add('hidden');
+    try{ sessionStorage.setItem('mascotHidden','1'); }catch(_){}
+  });
+})();
+</script>
 <div class="video-widget">
   <div class="vw-foam" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
   <button class="video-widget-btn" id="vwOpen" aria-label="Смотреть видео работы Алексея">
