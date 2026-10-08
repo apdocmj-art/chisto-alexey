@@ -117,6 +117,11 @@ NAV = '''    <nav>
 def foot_links():
     return '\n'.join(f'      <a href="{s["slug"]}.html">{esc(s["menu"])}</a>' for s in SERVICES)
 
+INN = "422378559089"
+OGRNIP = "321420500065049"
+OKPO = "2009482280"
+EMAIL = "himchistka@chisto-alexey.ru"
+
 FOOTER = f'''<footer>
   <div class="wrap">
     <div class="foot-links">
@@ -126,6 +131,10 @@ FOOTER = f'''<footer>
     <div class="foot-row">
       <div class="foot-brand"><img src="images/logo.png" alt="Чисто Алексей"></div>
       <span>Москва, Ярославская ул., 8, корп. 3 · Одинцово, ул. Ракетчиков, с11 · <a href="tel:+79999662211" style="color:inherit">{PHONE}</a> · <a href="mailto:himchistka@chisto-alexey.ru" style="color:inherit">himchistka@chisto-alexey.ru</a></span>
+    </div>
+    <div class="foot-legal">
+      <span>© 2026 «Чисто Алексей» · ИП Гарифуллина Лилия Харисовна · ИНН {INN} · ОГРНИП {OGRNIP}</span>
+      <span><a href="rekvizity.html">Реквизиты</a> · <a href="privacy.html">Политика конфиденциальности</a></span>
     </div>
   </div>
 </footer>'''
@@ -161,7 +170,7 @@ def page(s):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1008b">
+<link rel="stylesheet" href="css/site.css?v=1008c">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 </head>
 <body>
@@ -264,8 +273,96 @@ def page(s):
 for s in SERVICES:
     (ROOT / f'{s["slug"]}.html').write_text(page(s), encoding="utf-8")
 
+
+def simple_page(slug, title, desc, h1, body):
+    return f'''<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{esc(title)}</title>
+<meta name="description" content="{esc(desc)}">
+<link rel="canonical" href="{SITE}/{slug}.html">
+{FAVICON}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=1008c">
+</head>
+<body>
+<header>
+  <div class="wrap headrow">
+    <a class="brand" href="index.html"><span class="brand-logo-wrap"><img src="images/logo.png" alt="Чисто Алексей"></span></a>
+{NAV}
+    <a class="btn btn-primary" href="{ZAYAVKA}" target="_blank" rel="noopener">Оставить заявку</a>
+  </div>
+</header>
+<main>
+  <div class="wrap"><p class="crumbs"><a href="index.html">Главная</a> / {esc(h1)}</p></div>
+  <section>
+    <div class="wrap"><div class="svc-text legal-text">
+      <h1 style="font-size:clamp(1.6rem,3vw,2.2rem);margin:0 0 20px;">{esc(h1)}</h1>
+{body}
+    </div></div>
+  </section>
+</main>
+
+{FOOTER}
+</body>
+</html>
+'''
+
+REKV = f'''      <table class="rekv">
+        <tr><th>Исполнитель</th><td>Индивидуальный предприниматель Гарифуллина Лилия Харисовна (ИП Гарифуллина Л.Х.)</td></tr>
+        <tr><th>Бренд</th><td>«Чисто Алексей», химчистка мебели на дому</td></tr>
+        <tr><th>ИНН</th><td>{INN}</td></tr>
+        <tr><th>ОГРНИП</th><td>{OGRNIP}</td></tr>
+        <tr><th>ОКПО</th><td>{OKPO}</td></tr>
+        <tr><th>Адреса работы</th><td>Москва, Ярославская ул., 8, корп. 3<br>Одинцово, ул. Ракетчиков, с11</td></tr>
+        <tr><th>Телефон</th><td><a href="tel:+79999662211">{PHONE}</a></td></tr>
+        <tr><th>Эл. почта</th><td><a href="mailto:{EMAIL}">{EMAIL}</a></td></tr>
+      </table>
+      <p>Банковские реквизиты для оплаты по безналичному расчёту (для юридических лиц) направляем по запросу на <a href="mailto:{EMAIL}">{EMAIL}</a> или в Telegram вместе со счётом.</p>
+'''
+
+PRIV = [
+ ("1. Общие положения", [
+  f"Настоящая политика определяет порядок обработки и защиты персональных данных посетителей сайта chisto-alexey.ru (далее: Сайт) в соответствии с Федеральным законом от 27.07.2006 № 152-ФЗ «О персональных данных».",
+  f"Оператор персональных данных: индивидуальный предприниматель Гарифуллина Лилия Харисовна, ИНН {INN}, ОГРНИП {OGRNIP} (далее: Оператор). Контакт для обращений: {EMAIL}.",
+  "Используя Сайт и передавая Оператору свои данные, пользователь соглашается с настоящей политикой."]),
+ ("2. Какие данные обрабатываются", [
+  "Имя, номер телефона, имя пользователя в Telegram, адрес выезда мастера, фотографии мебели и описание загрязнений, если пользователь сам сообщает их при оформлении заявки по телефону, в Telegram или по электронной почте.",
+  "Технические данные, которые браузер передаёт автоматически: IP-адрес, тип браузера и устройства, файлы cookie, сведения о посещённых страницах."]),
+ ("3. Цели обработки", [
+  "Обработка заявок, связь с клиентом, расчёт стоимости и согласование времени выезда.",
+  "Оказание услуг химчистки, выставление счетов и выполнение договорных обязательств.",
+  "Улучшение работы Сайта и анализ его посещаемости."]),
+ ("4. Правовые основания", [
+  "Согласие субъекта персональных данных, а также необходимость исполнения договора, стороной которого является субъект (п. 1 и 5 ч. 1 ст. 6 Закона № 152-ФЗ)."]),
+ ("5. Порядок и сроки обработки", [
+  "Оператор обрабатывает данные с использованием средств автоматизации и без них: сбор, запись, систематизация, хранение, уточнение, использование, удаление.",
+  "Данные хранятся не дольше, чем этого требуют цели обработки, либо до отзыва согласия, если иное не предусмотрено законом.",
+  "Оператор не передаёт персональные данные третьим лицам, за исключением случаев, предусмотренных законодательством РФ."]),
+ ("6. Сторонние сервисы", [
+  "На Сайте используются сторонние сервисы: виджет отзывов MyReviews (отзывы с Яндекс Карт), шрифты Google Fonts, переходы в Telegram. Эти сервисы могут получать технические данные браузера по своим правилам."]),
+ ("7. Файлы cookie", [
+  "Сайт и подключённые сервисы могут использовать cookie для корректной работы и статистики. Пользователь может отключить cookie в настройках браузера; часть функций Сайта при этом может работать некорректно."]),
+ ("8. Защита данных", [
+  "Оператор принимает необходимые правовые, организационные и технические меры для защиты персональных данных от неправомерного доступа, изменения, распространения и уничтожения."]),
+ ("9. Права пользователя", [
+  f"Пользователь вправе получить сведения об обработке своих данных, потребовать их уточнения, блокирования или удаления, а также отозвать согласие, направив запрос на {EMAIL}. Оператор отвечает в течение 10 рабочих дней."]),
+ ("10. Изменение политики", [
+  "Оператор может изменять настоящую политику. Новая редакция вступает в силу с момента размещения на Сайте. Редакция от 8 октября 2026 года."]),
+]
+PRIV_BODY = '\n'.join(f'      <h2>{esc(h)}</h2>\n' + '\n'.join(f'      <p>{esc(x)}</p>' for x in ps) for h, ps in PRIV)
+
+(ROOT / "privacy.html").write_text(simple_page("privacy", "Политика конфиденциальности | Чисто Алексей",
+    "Политика обработки персональных данных сайта chisto-alexey.ru, ИП Гарифуллина Л.Х.", "Политика конфиденциальности", PRIV_BODY), encoding="utf-8")
+(ROOT / "rekvizity.html").write_text(simple_page("rekvizity", "Реквизиты | Чисто Алексей",
+    "Реквизиты ИП Гарифуллина Л.Х., химчистка мебели «Чисто Алексей».", "Реквизиты", REKV), encoding="utf-8")
+
 # sitemap + robots
-urls = [SITE + "/", SITE + "/news.html"] + [f'{SITE}/{s["slug"]}.html' for s in SERVICES]
+urls = [SITE + "/", SITE + "/news.html", SITE + "/rekvizity.html", SITE + "/privacy.html"] + [f'{SITE}/{s["slug"]}.html' for s in SERVICES]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     ''.join(f'  <url><loc>{u}</loc></url>\n' for u in urls) + '</urlset>\n', encoding="utf-8")
 (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nDisallow: /tools/\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
