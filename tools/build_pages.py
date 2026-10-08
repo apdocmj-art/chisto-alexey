@@ -125,7 +125,7 @@ FOOTER = f'''<footer>
     </div>
     <div class="foot-row">
       <div class="foot-brand"><img src="images/logo.png" alt="Чисто Алексей"></div>
-      <span>Москва, Ярославская ул., 8, корп. 3 · Одинцово, ул. Ракетчиков, с11 · <a href="tel:+79999662211" style="color:inherit">{PHONE}</a></span>
+      <span>Москва, Ярославская ул., 8, корп. 3 · Одинцово, ул. Ракетчиков, с11 · <a href="tel:+79999662211" style="color:inherit">{PHONE}</a> · <a href="mailto:himchistka@chisto-alexey.ru" style="color:inherit">himchistka@chisto-alexey.ru</a></span>
     </div>
   </div>
 </footer>'''
@@ -140,7 +140,7 @@ def page(s):
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "Service", "name": s["h1"], "serviceType": s["menu"], "description": s["desc"], "url": url,
          "areaServed": ["Москва", "Одинцово", "Московская область"],
-         "provider": {"@type": "LocalBusiness", "name": "Чисто Алексей", "telephone": "+79999662211", "url": SITE + "/"}},
+         "provider": {"@type": "LocalBusiness", "name": "Чисто Алексей", "telephone": "+79999662211", "email": "himchistka@chisto-alexey.ru", "url": SITE + "/"}},
         {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in s["faq"]]},
         {"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Главная", "item": SITE + "/"},
