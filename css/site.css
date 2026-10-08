@@ -720,3 +720,6 @@
             mask:radial-gradient(circle, rgba(0,0,0,.12) 46%, #000 70%);
     filter:drop-shadow(0 2px 4px rgba(15,37,51,.15));
   }
+  /* фото в новостях: не резать головы */
+  .news-img img{object-position:center 18%;}
+  @media (max-width:700px){.news-img img{aspect-ratio:auto !important;height:auto !important;object-fit:contain;}}
