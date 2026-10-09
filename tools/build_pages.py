@@ -112,13 +112,15 @@ SERVICES = [
 
 def esc(s): return html.escape(s, quote=True)
 
-NAV = '''    <nav>
-      <a href="index.html#services">Услуги и цены</a>
-      <a href="index.html#results">Работы</a>
+NAV = '''    <button class="burger" type="button" aria-label="Меню" onclick="document.body.classList.toggle('menu-open')"><span></span><span></span><span></span></button>
+    <nav>
+      <a href="ceny.html">Услуги и цены</a>
+      <a href="raboty.html">Работы</a>
       <a href="himchistka-dlya-biznesa.html">Для бизнеса</a>
+      <a href="otzyvy.html">Отзывы</a>
       <a href="news.html">Новости</a>
-      <a href="index.html#faq">Вопросы</a>
-      <a href="index.html#contacts">Контакты</a>
+      <a href="kontakty.html">Контакты</a>
+      <a class="nav-call" href="tel:+79999662211">Позвонить: +7 999 966-22-11</a>
     </nav>'''
 
 def foot_links():
@@ -177,7 +179,7 @@ def page(s):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009c">
+<link rel="stylesheet" href="css/site.css?v=1009d">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 {METRIKA}</head>
 <body>
@@ -193,7 +195,7 @@ def page(s):
 </header>
 
 <main>
-  <div class="wrap crumbs-row">{back("index.html#svc-more")}<p class="crumbs"><a href="index.html">Главная</a> / {esc(s["menu"])}</p></div>
+  <div class="wrap crumbs-row">{back("ceny.html#svc-more")}<p class="crumbs"><a href="index.html">Главная</a> / {esc(s["menu"])}</p></div>
   <section>
     <div class="wrap svc-hero">
       <div>
@@ -215,7 +217,7 @@ def page(s):
       <div class="price-group">
 {prices}
       </div>
-      <p class="price-note"><a href="index.html#services" style="color:inherit">Весь прайс</a> · Наличный и безналичный расчёт</p>
+      <p class="price-note"><a href="ceny.html" style="color:inherit">Весь прайс</a> · Наличный и безналичный расчёт</p>
     </div>
   </section>
 
@@ -297,7 +299,7 @@ def simple_page(slug, title, desc, h1, body):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009c">
+<link rel="stylesheet" href="css/site.css?v=1009d">
 {METRIKA}</head>
 <body>
 <header>
@@ -374,20 +376,60 @@ PRIV_BODY = '\n'.join(f'      <h2>{esc(h)}</h2>\n' + '\n'.join(f'      <p>{esc(x
 (ROOT / "rekvizity.html").write_text(simple_page("rekvizity", "Реквизиты | Чисто Алексей",
     "Реквизиты ИП Гарифуллина Л.Х., химчистка мебели «Чисто Алексей».", "Реквизиты", REKV), encoding="utf-8")
 
+# отдельные страницы разделов (контент берётся из tools/parts)
+PARTS = ROOT / "tools" / "parts"
+def part(name): return (PARTS / f"{name}.html").read_text(encoding="utf-8")
+SVC_LINKS = '<div class="svc-links">\n' + '\n'.join(f'        <a href="{s["slug"]}.html">{esc(s["menu"])}</a>' for s in SERVICES) + '\n      </div>'
+
+def section_page(slug, title, desc, crumb, body, extra=""):
+    if '<h1' not in body:
+        body = re.sub(r'<h2([^>]*)>', r'<h1 class="page-h1"\1>', body, count=1)
+        body = body.replace('</h2>', '</h1>', 1)
+    html_ = simple_page(slug, title, desc, crumb, "@@BODY@@")
+    a = html_.index('  <section>\n    <div class="wrap"><div class="svc-text legal-text">')
+    b = html_.index('</main>')
+    html_ = html_[:a] + body + html_[b:]
+    if extra: html_ = html_.replace('</body>', extra + '</body>')
+    return html_
+
+services_part = re.sub(r'\n *<h3 class="svc-links-h"[^>]*>.*?</div>', '', part("services"), flags=re.S)
+services_part = services_part.replace('\n      <div class="price-perks">', '\n      <h3 class="svc-links-h" id="svc-more">Подробнее об услугах</h3>\n      ' + SVC_LINKS + '\n\n      <div class="price-perks">', 1)
+SECTION_PAGES = [
+  ("ceny", "Цены на химчистку мебели на дому в Москве и Одинцово | Чисто Алексей",
+   "Прайс на химчистку диванов, матрасов, кресел, стульев, ковров и штор на дому. Что входит в чистку, когда бывают доплаты, ответы на вопросы.",
+   "Услуги и цены", services_part + "\n" + part("faq"), ""),
+  ("raboty", "Работы: фото до и после химчистки мебели | Чисто Алексей",
+   "Фото до и после химчистки диванов, кресел, стульев и ковролина с реальных выездов Алексея. Как проходит химчистка на дому.",
+   "Работы", part("results") + "\n" + part("process"), ""),
+  ("otzyvy", "Отзывы о химчистке мебели «Чисто Алексей»",
+   "Реальные отзывы клиентов с Яндекс.Карт о химчистке диванов, матрасов, ковролина и мебели в кафе.",
+   "Отзывы", part("reviews"), part("reviews_script")),
+  ("kontakty", "Контакты: химчистка мебели «Чисто Алексей», Москва и Одинцово",
+   "Телефон, Telegram, почта и адреса химчистки мебели «Чисто Алексей» в Москве и Одинцово.",
+   "Контакты", part("contacts").replace('<span class="eyebrow">Заявка на химчистку</span>', '<h1 class="eyebrow" style="font-size:.95rem;margin:0;">Контакты · Москва и Одинцово</h1>', 1).replace('<section id="contacts" style="padding-top:0;">', '<section id="contacts">', 1) + "\n" + part("charity"), ""),
+]
+for slug, title, desc, crumb, body, extra in SECTION_PAGES:
+    (ROOT / f"{slug}.html").write_text(section_page(slug, title, desc, crumb, body, extra), encoding="utf-8")
+
 # sitemap + robots
-urls = [SITE + "/", SITE + "/news.html", SITE + "/rekvizity.html", SITE + "/privacy.html"] + [f'{SITE}/{s["slug"]}.html' for s in SERVICES]
+urls = [SITE + "/", SITE + "/ceny.html", SITE + "/raboty.html", SITE + "/otzyvy.html", SITE + "/kontakty.html", SITE + "/news.html", SITE + "/rekvizity.html", SITE + "/privacy.html"] + [f'{SITE}/{s["slug"]}.html' for s in SERVICES]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     ''.join(f'  <url><loc>{u}</loc></url>\n' for u in urls) + '</urlset>\n', encoding="utf-8")
 (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nDisallow: /tools/\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
 
-# общий подвал и ссылки на услуги в index.html и news.html
-SVC_LINKS = '<div class="svc-links">\n' + '\n'.join(f'        <a href="{s["slug"]}.html">{esc(s["menu"])}</a>' for s in SERVICES) + '\n      </div>'
+# общий подвал и меню в index.html и news.html
 for name in ("index.html", "news.html"):
     p = ROOT / name; t = p.read_text(encoding="utf-8")
     t = re.sub(r'<footer>.*?</footer>', FOOTER, t, flags=re.S)
-    if name == "index.html":
-        t = re.sub(r'\n *<h3 class="svc-links-h"[^>]*>.*?</div>', '', t, flags=re.S)
-        t = t.replace('\n      <div class="price-perks">', '\n      <h3 class="svc-links-h" id="svc-more">Подробнее об услугах</h3>\n      ' + SVC_LINKS + '\n\n      <div class="price-perks">', 1)
-        t = t.replace('<a href="#business">Для бизнеса</a>', '<a href="himchistka-dlya-biznesa.html">Для бизнеса</a>')
+    t = re.sub(r'(    <button class="burger"[^\n]*\n)?    <nav>.*?</nav>', lambda m: NAV, t, count=1, flags=re.S)
     p.write_text(t, encoding="utf-8")
+
+# подсветка текущего раздела в меню
+for f in ROOT.glob("*.html"):
+    t = f.read_text(encoding="utf-8")
+    t = t.replace(' aria-current="page"', '')
+    if '    <nav>' in t:
+        a = t.index('    <nav>'); b = t.index('</nav>', a)
+        t = t[:a] + t[a:b].replace(f'<a href="{f.name}">', f'<a href="{f.name}" aria-current="page">', 1) + t[b:]
+    f.write_text(t, encoding="utf-8")
 print("ok", len(SERVICES), "pages")
