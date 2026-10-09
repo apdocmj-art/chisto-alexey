@@ -857,3 +857,8 @@
     .tz-card span{display:none;}
     .tz-card i{top:auto;bottom:10px;right:14px;transform:none;font-size:1.1rem;}
   }
+  /* галерея работ: две крупные работы сверху */
+  .gallery.gallery-feat{grid-template-columns:repeat(4,1fr);}
+  .gallery-feat .g-big{grid-column:span 2;}
+  @media (max-width:900px){.gallery.gallery-feat{grid-template-columns:1fr 1fr;}.gallery-feat .g-big{grid-column:span 2;}}
+  @media (max-width:520px){.gallery.gallery-feat{grid-template-columns:1fr;}.gallery-feat .g-big{grid-column:auto;}}
