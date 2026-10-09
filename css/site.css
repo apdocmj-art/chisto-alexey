@@ -909,3 +909,22 @@
 @media (max-width:440px){.hp-mail{display:none;}}
 
 .max-ico{width:20px;height:20px;border-radius:5px;flex:none;display:block;}
+
+/* мобильная кнопка «Написать» + выезжающий список */
+.hp-write{display:none;border:0;cursor:pointer;font:inherit;font-weight:700;background:var(--teal-bright);color:#062A2A;}
+.wsheet{position:fixed;inset:0;z-index:1000;background:rgba(5,15,25,.55);display:flex;align-items:flex-end;opacity:0;visibility:hidden;transition:.25s;}
+.wsheet.open{opacity:1;visibility:visible;}
+.ws-box{width:100%;background:#fff;color:#0F2533;border-radius:20px 20px 0 0;padding:16px 16px calc(18px + env(safe-area-inset-bottom));transform:translateY(100%);transition:transform .25s;}
+.wsheet.open .ws-box{transform:none;}
+.ws-head{display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:1.1rem;margin-bottom:10px;}
+.ws-x{border:0;background:#EEF3F5;width:36px;height:36px;border-radius:50%;font-size:1.4rem;line-height:1;cursor:pointer;color:#0F2533;}
+.ws-i{display:flex;align-items:center;gap:12px;padding:14px;border-radius:14px;background:#F3F7F8;margin-top:8px;color:#0F2533;text-decoration:none;font-weight:700;font-size:1.02rem;}
+.ws-i img{border-radius:7px;}
+.ws-i svg{color:#0F9C97;}
+.ws-note{margin:12px 2px 0;font-size:.85rem;color:#5B6B75;}
+@media (max-width:760px){
+  .hp-max,.hp-tg,.hp-mail{display:none !important;}
+  .hp-write{display:inline-flex;width:auto !important;padding:0 14px !important;}
+  .hp-write span{display:inline !important;}
+}
+@media (min-width:761px){.wsheet{display:none;}}
