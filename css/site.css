@@ -773,3 +773,41 @@
   nav a{white-space:nowrap;}
   @media (max-width:1180px){nav{gap:18px;}}
   @media (max-width:980px){nav{gap:14px;font-size:.92em;}}
+  /* что входит в химчистку */
+  .incl{margin-top:40px;padding:28px;border-radius:20px;background:#fff;border:1px solid var(--line);}
+  .incl-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:18px;}
+  .incl-head h3{font-family:"Oswald",sans-serif;text-transform:uppercase;font-size:1.35rem;letter-spacing:.02em;}
+  .incl-head p{color:var(--ink-soft);font-size:.95rem;margin:0;}
+  .incl-steps{list-style:none;counter-reset:st;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .incl-steps li{counter-increment:st;position:relative;padding:16px 16px 16px 58px;border-radius:14px;background:var(--bg-soft,#f3f6f8);}
+  .incl-steps li::before{content:counter(st);position:absolute;left:16px;top:14px;width:30px;height:30px;border-radius:50%;
+    background:var(--teal-bright);color:#062A2A;font-weight:800;display:grid;place-items:center;font-size:.9rem;}
+  .incl-steps b{display:block;color:var(--ink);margin-bottom:4px;}
+  .incl-steps span{color:var(--ink-soft);font-size:.9rem;line-height:1.45;}
+  @media (max-width:900px){.incl-steps{grid-template-columns:1fr 1fr;}}
+  @media (max-width:600px){.incl{padding:20px 16px;}.incl-steps{grid-template-columns:1fr;}}
+  .extra-why{margin-top:22px;}
+  .extra-why h3{font-family:"Oswald",sans-serif;text-transform:uppercase;font-size:1.15rem;letter-spacing:.02em;margin-bottom:12px;}
+  .extra-why dl{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .extra-why dl>div{padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:#fff;}
+  .extra-why dt{font-weight:700;color:var(--ink);display:flex;justify-content:space-between;gap:10px;}
+  .extra-why dt span{color:var(--teal-deep);white-space:nowrap;}
+  .extra-why dd{margin:4px 0 0;color:var(--ink-soft);font-size:.9rem;line-height:1.45;}
+  .extra-why-note{margin-top:10px;font-size:.9rem;color:var(--teal-deep);font-weight:600;}
+  @media (max-width:700px){.extra-why dl{grid-template-columns:1fr;}}
+  /* карточки отзывов */
+  .rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;}
+  .rv{margin:0;padding:20px;border-radius:18px;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;gap:10px;}
+  .rv-top{display:flex;align-items:center;gap:12px;}
+  .rv-top b{display:block;color:var(--ink);}
+  .rv-top small{color:var(--ink-faint,#7b8a95);font-size:.8rem;}
+  .rv-ava{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:800;
+    background:rgba(47,208,202,.18);color:var(--teal-deep);}
+  .rv-tag{align-self:flex-start;font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--teal-deep);background:rgba(47,208,202,.12);padding:4px 10px;border-radius:999px;}
+  .rv blockquote{margin:0;color:var(--ink-soft);font-size:.95rem;line-height:1.55;}
+
+  .rv-src{margin:14px 0 6px;}
+  .rv-src a{color:var(--teal-deep);font-weight:700;text-decoration:none;}
+  @media (max-width:900px){.rv-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:600px){.rv-grid{grid-template-columns:1fr;}}
