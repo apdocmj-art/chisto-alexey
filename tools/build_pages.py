@@ -465,7 +465,7 @@ PRIV_BODY = '\n'.join(f'      <h2>{esc(h)}</h2>\n' + '\n'.join(f'      <p>{esc(x
 
 
 ART_BODY = """      <p><b>9 октября 2026 · Советы по уходу</b></p>
-      <p><img src="images/news-sherst.jpg" alt="Шерсть кошки на ковре и пылесос" style="width:100%;max-width:640px;border-radius:14px"></p>
+      <p><img src="images/news-sherst2.jpg" alt="Шерсть кошки на ковре и пылесос" style="width:100%;max-width:640px;border-radius:14px"></p>
       <p>Кажется, у кота или собаки появилась запасная шуба, а хранится она на ковре? Вот что поможет:</p>
       <h2>1. Пылесос с турбощёткой</h2>
       <p>Двигайтесь медленно и в разных направлениях: сначала по ворсу, потом против.</p>
