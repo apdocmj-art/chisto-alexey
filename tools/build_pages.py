@@ -155,6 +155,7 @@ FOOTER = f'''<footer>
         <h3>Контакты</h3>
         <a class="foot-phone" href="tel:+79999662211">{PHONE}</a>
         <a href="mailto:{EMAIL}">{EMAIL}</a>
+        <a href="https://max.ru/u/f9LHodD0cOJBBJzUkjHrh1dTQiRNRyNseOy4CKAZ5mCJjNtTgv5gJF8CsuI" target="_blank" rel="noopener">Написать в MAX</a>
         <a href="https://t.me/Chisto_Aleksey" target="_blank" rel="noopener">Telegram-канал</a>
         <span>Москва, Ярославская ул., 8, корп. 3</span>
         <span>Одинцово, ул. Ракетчиков, с11</span>
@@ -249,7 +250,7 @@ def page(s):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009h">
+<link rel="stylesheet" href="css/site.css?v=1009i">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 {METRIKA}</head>
 <body>
@@ -258,6 +259,7 @@ def page(s):
     <a class="brand" href="index.html"><span class="brand-logo-wrap"><img src="images/logo.png" alt="Чисто Алексей"></span></a>
 {NAV}
     <div class="head-cta">
+      <a class="head-max" href="https://max.ru/u/f9LHodD0cOJBBJzUkjHrh1dTQiRNRyNseOy4CKAZ5mCJjNtTgv5gJF8CsuI" target="_blank" rel="noopener" aria-label="Написать в MAX"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2C6.5 2 2 6.1 2 11.2c0 2.6 1.2 5 3.1 6.7L4.4 22l4.2-2.1c1.1.3 2.2.5 3.4.5 5.5 0 10-4.1 10-9.2S17.5 2 12 2zm-4 8.2h8v1.6H8v-1.6zm0-3h8v1.6H8V7.2zm0 6h5v1.6H8v-1.6z"/></svg><span>MAX</span></a>
       <a class="head-phone" href="tel:+79999662211" aria-label="Позвонить Алексею">{PHONE_SVG}<span>+7 999 966-22-11</span></a>
       <a class="btn btn-primary" href="{ZAYAVKA}" target="_blank" rel="noopener">Оставить заявку</a>
     </div>
@@ -369,7 +371,7 @@ def simple_page(slug, title, desc, h1, body):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009h">
+<link rel="stylesheet" href="css/site.css?v=1009i">
 {METRIKA}</head>
 <body>
 <header>
@@ -377,6 +379,7 @@ def simple_page(slug, title, desc, h1, body):
     <a class="brand" href="index.html"><span class="brand-logo-wrap"><img src="images/logo.png" alt="Чисто Алексей"></span></a>
 {NAV}
     <div class="head-cta">
+      <a class="head-max" href="https://max.ru/u/f9LHodD0cOJBBJzUkjHrh1dTQiRNRyNseOy4CKAZ5mCJjNtTgv5gJF8CsuI" target="_blank" rel="noopener" aria-label="Написать в MAX"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2C6.5 2 2 6.1 2 11.2c0 2.6 1.2 5 3.1 6.7L4.4 22l4.2-2.1c1.1.3 2.2.5 3.4.5 5.5 0 10-4.1 10-9.2S17.5 2 12 2zm-4 8.2h8v1.6H8v-1.6zm0-3h8v1.6H8V7.2zm0 6h5v1.6H8v-1.6z"/></svg><span>MAX</span></a>
       <a class="head-phone" href="tel:+79999662211" aria-label="Позвонить Алексею">{PHONE_SVG}<span>+7 999 966-22-11</span></a>
       <a class="btn btn-primary" href="{ZAYAVKA}" target="_blank" rel="noopener">Оставить заявку</a>
     </div>
