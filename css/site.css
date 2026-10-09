@@ -903,3 +903,7 @@
   .hpill:hover{transform:translateY(-1px);filter:brightness(1.05);}
   @media (max-width:1240px){.hp-call span{display:none;}.hp-call{width:44px;padding:0;justify-content:center;}}
   @media (max-width:1080px){.hpill span{display:none;}.hpill{width:44px;padding:0;justify-content:center;}}
+
+.hp-mail{color:#fff;border:1.5px solid rgba(47,208,202,.6);width:44px;padding:0;justify-content:center;}
+.hp-mail svg{color:var(--teal-bright);}
+@media (max-width:440px){.hp-mail{display:none;}}
