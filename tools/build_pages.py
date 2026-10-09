@@ -17,7 +17,7 @@ PHONE_SVG = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
 ZAYAVKA = "https://t.me/m/kkPA_OlCYzhi"  # ссылка «Оставить заявку» (Telegram с готовым текстом)
 
 idx = (ROOT / "index.html").read_text(encoding="utf-8")
-FAVICON = re.search(r'<link rel="icon"[^>]*>', idx).group(0)
+FAVICON = '<link rel="icon" href="/favicon.ico" sizes="any">\n<link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png">\n<link rel="apple-touch-icon" href="/apple-touch-icon.png">'
 
 SERVICES = [
  dict(slug="himchistka-divanov", menu="Химчистка диванов",
