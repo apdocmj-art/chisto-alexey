@@ -732,3 +732,27 @@
   .back-btn span{color:var(--teal-deep,#0e8f8a);font-size:1.1rem;line-height:1;}
   .back-btn:hover{border-color:var(--teal-deep,#0e8f8a);color:var(--teal-deep,#0e8f8a);}
   #svc-more{scroll-margin-top:100px;}
+  /* «Химчистка у вас ...» — крупная выразительная строка над заголовком */
+  .where{display:flex;flex-direction:column;gap:10px;}
+  .where-line{margin:0;font-family:"Oswald",sans-serif;font-weight:700;text-transform:uppercase;
+    font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.1;letter-spacing:.02em;color:var(--ink);
+    display:flex;align-items:center;flex-wrap:wrap;gap:.3em .35em;}
+  .where-rot{position:relative;display:inline-block;height:1.5em;min-width:3em;overflow:hidden;
+    background:var(--teal-bright);color:#062A2A;border-radius:14px;padding:0 .45em;box-sizing:content-box;
+    transition:width .45s cubic-bezier(.2,.8,.2,1);box-shadow:0 8px 22px rgba(47,208,202,.35);transform:rotate(-1.5deg);}
+  .where-word{position:absolute;left:.45em;top:0;height:100%;display:flex;align-items:center;white-space:nowrap;
+    transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .5s;}
+  .where-word.in{transform:translateY(100%);opacity:0;}
+  .where-word.out{transform:translateY(-100%);opacity:0;}
+  .where-geo{margin:0;display:flex;align-items:center;gap:10px;font-family:"Oswald",sans-serif;font-weight:600;
+    font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);}
+  .where-pin{flex:none;width:9px;height:9px;border-radius:50%;background:var(--teal-bright);box-shadow:0 0 0 4px rgba(47,208,202,.25);
+    animation:pin-pulse 2s ease-in-out infinite;}
+  @keyframes pin-pulse{50%{box-shadow:0 0 0 8px rgba(47,208,202,0);}}
+  .where-line{display:block;}
+  .where-br{display:block;height:8px;}
+  .where-rot{vertical-align:top;}
+  @media (max-width:520px){
+    .where-line{font-size:1.75rem;}
+    .where-geo{font-size:.7rem;letter-spacing:.08em;}
+  }
