@@ -7,6 +7,8 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://chisto-alexey.ru"
 PHONE = "+7 999 966-22-11"
 TG = "https://t.me/Chisto_Alexey"
+METRIKA = open(__import__('os').path.join(__import__('os').path.dirname(__file__), 'metrika.html'), encoding='utf-8').read()
+
 def back(href):
     return ('<a class="back-btn" href="' + href + '" onclick="if(document.referrer.indexOf(location.host)>-1&amp;&amp;history.length>1){history.back();return false;}">'
             '<span aria-hidden="true">←</span> Назад</a>')
@@ -176,7 +178,7 @@ def page(s):
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css?v=1009a">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
-</head>
+{METRIKA}</head>
 <body>
 <header>
   <div class="wrap headrow">
@@ -292,7 +294,7 @@ def simple_page(slug, title, desc, h1, body):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css?v=1009a">
-</head>
+{METRIKA}</head>
 <body>
 <header>
   <div class="wrap headrow">
@@ -350,7 +352,7 @@ PRIV = [
  ("6. Сторонние сервисы", [
   "На Сайте используются сторонние сервисы: виджет отзывов MyReviews (отзывы с Яндекс Карт), шрифты Google Fonts, переходы в Telegram. Эти сервисы могут получать технические данные браузера по своим правилам."]),
  ("7. Файлы cookie", [
-  "Сайт и подключённые сервисы могут использовать cookie для корректной работы и статистики. Пользователь может отключить cookie в настройках браузера; часть функций Сайта при этом может работать некорректно."]),
+  "Сайт и подключённые сервисы могут использовать cookie для корректной работы и статистики. Для анализа посещаемости используется сервис Яндекс.Метрика (ООО «Яндекс»), который обрабатывает обезличенные данные о визитах. Пользователь может отключить cookie в настройках браузера; часть функций Сайта при этом может работать некорректно."]),
  ("8. Защита данных", [
   "Оператор принимает необходимые правовые, организационные и технические меры для защиты персональных данных от неправомерного доступа, изменения, распространения и уничтожения."]),
  ("9. Права пользователя", [
