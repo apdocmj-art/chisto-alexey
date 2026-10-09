@@ -446,6 +446,25 @@ PRIV_BODY = '\n'.join(f'      <h2>{esc(h)}</h2>\n' + '\n'.join(f'      <p>{esc(x
 (ROOT / "rekvizity.html").write_text(simple_page("rekvizity", "Реквизиты | Чисто Алексей",
     "Реквизиты ИП Гарифуллина Л.Х., химчистка мебели «Чисто Алексей».", "Реквизиты", REKV), encoding="utf-8")
 
+
+ART_BODY = """      <p><b>9 октября 2026 · Советы по уходу</b></p>
+      <p>Если у вас кошка или собака, шерсть на ковре появляется быстрее, чем вы успеваете её убрать. Рассказываем, как справиться с ней дома, и когда пора звать химчистку.</p>
+      <h2>1. Пылесос с турбощёткой</h2>
+      <p>Ведите щётку медленно и в разных направлениях: сначала по ворсу, потом против. Так шерсть вытягивается из основания ковра, а не только с поверхности.</p>
+      <h2>2. Липкий ролик или скотч</h2>
+      <p>Подходит для небольших участков: у дивана, у лежанки питомца, на коротком ворсе.</p>
+      <h2>3. Влажная резиновая перчатка</h2>
+      <p>Проведите ладонью по ковру в одну сторону: шерсть собирается в комочки, которые легко убрать руками или пылесосом.</p>
+      <h2>4. Резиновая щётка или скребок</h2>
+      <p>Специальные щётки с резиновыми зубцами хорошо достают шерсть из ковролина и ковров с плотным ворсом.</p>
+      <h2>5. Регулярная влажная чистка</h2>
+      <p>Шерсть смешивается с пылью и жиром, и обычный пылесос перестаёт её вытягивать. Экстракторная химчистка вымывает её вместе с грязью и убирает запах животных.</p>
+      <h2>Когда звать химчистку</h2>
+      <p>Если ковёр потускнел, появился запах или следы питомца, пришлите фото Алексею: он назовёт стоимость до выезда. Химчистка ковров от 300 ₽ за м², удаление запаха мочи животных от 1 500 ₽.</p>
+      <p><a class="btn btn-primary" href="https://t.me/m/kkPA_OlCYzhi" target="_blank" rel="noopener">Узнать цену по фото</a> &nbsp; <a href="himchistka-kovrov.html">Химчистка ковров и ковролина →</a></p>"""
+(ROOT / "kak-ubrat-sherst-s-kovra.html").write_text(simple_page("kak-ubrat-sherst-s-kovra", "Как убрать шерсть с ковра: 5 способов | Чисто Алексей",
+    "Как убрать шерсть кошки или собаки с ковра дома: 5 способов и когда нужна химчистка ковра. Советы мастера химчистки «Чисто Алексей».", "Как убрать шерсть с ковра: 5 способов", ART_BODY), encoding="utf-8")
+
 # отдельные страницы разделов (контент берётся из tools/parts)
 PARTS = ROOT / "tools" / "parts"
 def part(name): return (PARTS / f"{name}.html").read_text(encoding="utf-8")
@@ -482,7 +501,7 @@ for slug, title, desc, crumb, body, extra in SECTION_PAGES:
     (ROOT / f"{slug}.html").write_text(section_page(slug, title, desc, crumb, body, extra), encoding="utf-8")
 
 # sitemap + robots
-urls = [SITE + "/", SITE + "/ceny.html", SITE + "/raboty.html", SITE + "/otzyvy.html", SITE + "/kontakty.html", SITE + "/news.html", SITE + "/rekvizity.html", SITE + "/privacy.html"] + [f'{SITE}/{s["slug"]}.html' for s in SERVICES]
+urls = [SITE + "/", SITE + "/ceny.html", SITE + "/raboty.html", SITE + "/otzyvy.html", SITE + "/kontakty.html", SITE + "/news.html", SITE + "/kak-ubrat-sherst-s-kovra.html", SITE + "/rekvizity.html", SITE + "/privacy.html"] + [f'{SITE}/{s["slug"]}.html' for s in SERVICES]
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     ''.join(f'  <url><loc>{u}</loc></url>\n' for u in urls) + '</urlset>\n', encoding="utf-8")
 (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nDisallow: /tools/\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
