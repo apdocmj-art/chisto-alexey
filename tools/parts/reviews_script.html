@@ -1,0 +1,22 @@
+<script src="https://myreviews.dev/widget/dist/blockWidget.js" defer></script>
+<script>
+    (function (){
+      var myReviewsInit = function () {
+        new window.myReviews.BlockWidget({
+        uuid: "48b351ed-8c80-4a20-b8c1-40b6bca36824",
+        name: "g76324500",
+        additionalFrame:"none",
+        lang:"ru",
+        widgetId: "1"
+        }).init();
+
+      };
+    if (document.readyState === "loading") {
+      document.addEventListener('DOMContentLoaded', function () {
+          myReviewsInit()
+      })
+    } else {
+      myReviewsInit()
+    }
+    })()
+</script>
