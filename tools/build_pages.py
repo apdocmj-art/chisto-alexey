@@ -13,6 +13,7 @@ def back(href):
     return ('<a class="back-btn" href="' + href + '" onclick="if(document.referrer.indexOf(location.host)>-1&amp;&amp;history.length>1){history.back();return false;}">'
             '<span aria-hidden="true">←</span> Назад</a>')
 
+PHONE_SVG = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>'
 ZAYAVKA = "https://t.me/m/kkPA_OlCYzhi"  # ссылка «Оставить заявку» (Telegram с готовым текстом)
 
 idx = (ROOT / "index.html").read_text(encoding="utf-8")
@@ -176,7 +177,7 @@ def page(s):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009a">
+<link rel="stylesheet" href="css/site.css?v=1009b">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 {METRIKA}</head>
 <body>
@@ -184,7 +185,10 @@ def page(s):
   <div class="wrap headrow">
     <a class="brand" href="index.html"><span class="brand-logo-wrap"><img src="images/logo.png" alt="Чисто Алексей"></span></a>
 {NAV}
-    <a class="btn btn-primary" href="{ZAYAVKA}" target="_blank" rel="noopener">Оставить заявку</a>
+    <div class="head-cta">
+      <a class="head-phone" href="tel:+79999662211" aria-label="Позвонить Алексею">{PHONE_SVG}<span>+7 999 966-22-11</span></a>
+      <a class="btn btn-primary" href="{ZAYAVKA}" target="_blank" rel="noopener">Оставить заявку</a>
+    </div>
   </div>
 </header>
 
@@ -197,7 +201,7 @@ def page(s):
         <h1>{esc(s["h1"])}</h1>
         <p class="lede">{esc(s["lede"])}</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="{ZAYAVKA}" target="_blank" rel="noopener">Оставить заявку</a>
+          <a class="btn btn-primary" href="{ZAYAVKA}" target="_blank" rel="noopener">Узнать цену по фото</a>
           <a class="btn btn-ghost" href="tel:+79999662211">{PHONE}</a>
         </div>
       </div>
@@ -293,14 +297,17 @@ def simple_page(slug, title, desc, h1, body):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009a">
+<link rel="stylesheet" href="css/site.css?v=1009b">
 {METRIKA}</head>
 <body>
 <header>
   <div class="wrap headrow">
     <a class="brand" href="index.html"><span class="brand-logo-wrap"><img src="images/logo.png" alt="Чисто Алексей"></span></a>
 {NAV}
-    <a class="btn btn-primary" href="{ZAYAVKA}" target="_blank" rel="noopener">Оставить заявку</a>
+    <div class="head-cta">
+      <a class="head-phone" href="tel:+79999662211" aria-label="Позвонить Алексею">{PHONE_SVG}<span>+7 999 966-22-11</span></a>
+      <a class="btn btn-primary" href="{ZAYAVKA}" target="_blank" rel="noopener">Оставить заявку</a>
+    </div>
   </div>
 </header>
 <main>
