@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Химчистка мебели на дому в Москве и Одинцово: диваны, матрасы, ковры | Чисто Алексей</title>
-<meta name="description" content="Химчистка мягкой мебели на дому: диваны от 5 000 ₽, матрасы от 3 000 ₽, кресла, стулья, ковры, шторы без снятия. Мастер Алексей, экстракторная чистка без вывоза. Москва, Одинцово, МО.">
+<title>Химчистка мебели на дому и в офисе в Москве и Одинцово | Чисто Алексей</title>
+<meta name="description" content="Химчистка мягкой мебели на дому: диваны от 5 000 ₽, матрасы от 3 000 ₽, кресла, стулья, ковры, шторы без снятия. Выезд на дом и в офис, экстракторная чистка без вывоза. Москва, Одинцово, МО.">
 <link rel="canonical" href="https://chisto-alexey.ru/">
 <meta property="og:title" content="Химчистка мебели на дому | Чисто Алексей">
 <meta property="og:description" content="Диваны, матрасы, кресла, ковры и шторы: чистка на месте, без вывоза. Москва, Одинцово, МО.">
@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1008h">
+<link rel="stylesheet" href="css/site.css?v=1009a">
 </head>
 <body>
 <div class="side-foam foam-left" aria-hidden="true"><span class="fb"></span><span class="fb"></span><span class="fb"></span><span class="fb"></span><span class="fb"></span></div>
@@ -41,9 +41,12 @@
   <div class="wrap hero">
     <div class="bubbles" aria-hidden="true"><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span></div>
     <div class="hero-top">
-      <span class="eyebrow">Химчистка мебели на дому · Москва и Московская область</span>
-      <h1>Диван, матрас или кресло <span style="white-space:nowrap"><span class="mark"><span class="mark-clean">снова чистые</span><span class="mark-dirty" aria-hidden="true">снова чистые</span><span class="mark-brush" aria-hidden="true"></span></span>,</span> прямо у вас дома</h1>
-      <p class="lede">Алексей приезжает сам, с профессиональным экстракторным оборудованием, и чистит мебель на месте, без вывоза и без химического запаха в квартире.</p>
+      <div class="where">
+        <p class="where-line">Химчистка у вас<span class="where-br"></span> <span class="where-rot" id="whereRot" aria-live="off"><span class="where-word">дома</span></span></p>
+        <p class="where-geo"><span class="where-pin" aria-hidden="true"></span>Москва · Одинцово · Московская область</p>
+      </div>
+      <h1>Диван, кресло или стулья <span style="white-space:nowrap"><span class="mark"><span class="mark-clean">снова чистые</span><span class="mark-dirty" aria-hidden="true">снова чистые</span><span class="mark-brush" aria-hidden="true"></span></span>,</span> прямо у вас дома или в офисе</h1>
+      <p class="lede">Алексей приезжает сам, с профессиональным экстракторным оборудованием, и чистит мебель на месте, без вывоза и без химического запаха в помещении. Квартиры, офисы, кафе и рестораны.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="https://t.me/m/kkPA_OlCYzhi" target="_blank" rel="noopener">Оставить заявку</a>
         <a class="btn btn-ghost" href="#services">Смотреть цены</a>
@@ -224,6 +227,7 @@
         <a href="himchistka-shtor.html">Химчистка штор без снятия</a>
         <a href="himchistka-dlya-biznesa.html">Для бизнеса: офисы и рестораны</a>
       </div>
+
 
       <h3 class="svc-links-h">Подробнее об услугах</h3>
       <div class="svc-links">
@@ -410,6 +414,26 @@
     </div>
   </div>
 </footer>
+<script>
+(function(){
+  var box=document.getElementById('whereRot'); if(!box) return;
+  var words=['дома','в офисе','в кафе','в ресторане','на даче'];
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var i=0, cur=box.querySelector('.where-word');
+  function fit(el){box.style.width=el.scrollWidth+'px';}
+  fit(cur);
+  setInterval(function(){
+    i=(i+1)%words.length;
+    var nx=document.createElement('span'); nx.className='where-word in'; nx.textContent=words[i];
+    box.appendChild(nx); fit(nx);
+    cur.classList.add('out');
+    var old=cur; setTimeout(function(){old.remove();},600);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){nx.classList.remove('in');});});
+    cur=nx;
+  },2200);
+  window.addEventListener('resize',function(){fit(cur);});
+})();
+</script>
 <div class="soap" id="soap" aria-hidden="true"></div>
 <script>
 (function(){
