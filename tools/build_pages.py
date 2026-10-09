@@ -386,8 +386,8 @@ for name in ("index.html", "news.html"):
     p = ROOT / name; t = p.read_text(encoding="utf-8")
     t = re.sub(r'<footer>.*?</footer>', FOOTER, t, flags=re.S)
     if name == "index.html":
-        t = re.sub(r'\n      <h3 class="svc-links-h">.*?</div>', '', t, flags=re.S)
-        t = t.replace('\n      <div class="price-perks">', '\n      <h3 class="svc-links-h">Подробнее об услугах</h3>\n      ' + SVC_LINKS + '\n\n      <div class="price-perks">', 1)
+        t = re.sub(r'\n *<h3 class="svc-links-h"[^>]*>.*?</div>', '', t, flags=re.S)
+        t = t.replace('\n      <div class="price-perks">', '\n      <h3 class="svc-links-h" id="svc-more">Подробнее об услугах</h3>\n      ' + SVC_LINKS + '\n\n      <div class="price-perks">', 1)
         t = t.replace('<a href="#business">Для бизнеса</a>', '<a href="himchistka-dlya-biznesa.html">Для бизнеса</a>')
     p.write_text(t, encoding="utf-8")
 print("ok", len(SERVICES), "pages")
