@@ -892,3 +892,14 @@
   .head-max:hover{color:var(--teal-bright);}
   @media (max-width:760px){.head-max span{display:none;}.head-max{width:44px;padding:0;justify-content:center;}.head-cta{gap:8px;}.head-cta .btn{padding-inline:10px;font-size:.72rem;}}
   @media (max-width:440px){.head-phone{display:none !important;}.headrow{gap:8px;}.brand-logo-wrap img{max-width:92px;}}
+  /* шапка: три плашки */
+  .head-cta{display:flex;gap:8px;align-items:center;}
+  .hpill{display:inline-flex;align-items:center;gap:7px;height:44px;padding:0 14px;border-radius:12px;font-weight:700;font-size:.9rem;text-decoration:none;white-space:nowrap;transition:.2s;}
+  .hp-max{background:var(--teal-bright);color:#062A2A;}
+  .hp-tg{background:#fff;color:#0F2533;}
+  .hp-tg svg{color:#2AABEE;}
+  .hp-call{color:#fff;border:1.5px solid rgba(47,208,202,.6);}
+  .hp-call svg{color:var(--teal-bright);}
+  .hpill:hover{transform:translateY(-1px);filter:brightness(1.05);}
+  @media (max-width:1240px){.hp-call span{display:none;}.hp-call{width:44px;padding:0;justify-content:center;}}
+  @media (max-width:1080px){.hpill span{display:none;}.hpill{width:44px;padding:0;justify-content:center;}}
