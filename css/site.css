@@ -907,3 +907,5 @@
 .hp-mail{color:#fff;border:1.5px solid rgba(47,208,202,.6);width:44px;padding:0;justify-content:center;}
 .hp-mail svg{color:var(--teal-bright);}
 @media (max-width:440px){.hp-mail{display:none;}}
+
+.max-ico{width:20px;height:20px;border-radius:5px;flex:none;display:block;}
