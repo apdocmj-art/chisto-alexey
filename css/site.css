@@ -756,3 +756,20 @@
     .where-line{font-size:1.75rem;}
     .where-geo{font-size:.7rem;letter-spacing:.08em;}
   }
+  /* шапка: телефон + заявка */
+  .head-cta{display:flex;align-items:center;gap:14px;}
+  .head-phone{display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;font-weight:700;white-space:nowrap;}
+  .head-phone svg{color:var(--teal-bright);}
+  .head-phone:hover{color:var(--teal-bright);}
+  @media (max-width:1320px){.head-phone span{display:none;}
+    .head-phone{width:44px;height:44px;justify-content:center;border-radius:12px;border:1.5px solid rgba(47,208,202,.6);}}
+  @media (max-width:760px){.head-cta{gap:10px;}}
+  /* первый экран: кнопки */
+  .btn-photo,.btn-call{display:inline-flex;align-items:center;gap:10px;}
+  .hero-note{margin:2px 0 0;font-size:.92rem;color:var(--ink-soft);max-width:520px;}
+  .hero-note a{color:var(--teal-deep);font-weight:600;white-space:nowrap;}
+  /* «снова чистые»: грязный слой без дубля текста */
+  .mark-dirty::before{content:attr(data-text);}
+  nav a{white-space:nowrap;}
+  @media (max-width:1180px){nav{gap:18px;}}
+  @media (max-width:980px){nav{gap:14px;font-size:.92em;}}
