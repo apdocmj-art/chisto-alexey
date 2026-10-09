@@ -133,13 +133,83 @@ EMAIL = "himchistka@chisto-alexey.ru"
 
 FOOTER = f'''<footer>
   <div class="wrap">
-    <div class="foot-links">
+    <div class="foot-grid">
+      <div class="foot-col foot-about">
+        <a class="foot-logo" href="index.html"><img src="images/logo.png" alt="Чисто Алексей"></a>
+        <p>Химчистка мягкой мебели, ковров и штор на дому и в офисе. Москва, Одинцово и Московская область.</p>
+        <a class="btn btn-primary foot-btn" href="{ZAYAVKA}" target="_blank" rel="noopener">Узнать цену по фото</a>
+      </div>
+      <div class="foot-col">
+        <h3>Услуги</h3>
 {foot_links()}
-      <a href="news.html">Новости</a>
+      </div>
+      <div class="foot-col">
+        <h3>Разделы</h3>
+        <a href="ceny.html">Услуги и цены</a>
+        <a href="raboty.html">Работы до и после</a>
+        <a href="otzyvy.html">Отзывы</a>
+        <a href="news.html">Новости</a>
+        <a href="kontakty.html">Контакты</a>
+      </div>
+      <div class="foot-col foot-contacts">
+        <h3>Контакты</h3>
+        <a class="foot-phone" href="tel:+79999662211">{PHONE}</a>
+        <a href="mailto:{EMAIL}">{EMAIL}</a>
+        <a href="https://t.me/Chisto_Aleksey" target="_blank" rel="noopener">Telegram-канал</a>
+        <span>Москва, Ярославская ул., 8, корп. 3</span>
+        <span>Одинцово, ул. Ракетчиков, с11</span>
+      </div>
     </div>
-    <div class="foot-row">
-      <div class="foot-brand"><img src="images/logo.png" alt="Чисто Алексей"></div>
-      <span>Москва, Ярославская ул., 8, корп. 3 · Одинцово, ул. Ракетчиков, с11 · <a href="tel:+79999662211" style="color:inherit">{PHONE}</a> · <a href="mailto:himchistka@chisto-alexey.ru" style="color:inherit">himchistka@chisto-alexey.ru</a></span>
+    <div class="foot-seo">
+      <h3>Популярные услуги</h3>
+      <div class="foot-tags">
+        <a href="himchistka-divanov.html">Химчистка дивана на дому</a>
+        <a href="himchistka-divanov.html">Химчистка углового дивана</a>
+        <a href="himchistka-divanov.html">Химчистка прямого дивана</a>
+        <a href="himchistka-divanov.html">Химчистка дивана-кровати</a>
+        <a href="himchistka-divanov.html">Химчистка светлого дивана</a>
+        <a href="himchistka-divanov.html">Чистка дивана от пятен</a>
+        <a href="himchistka-divanov.html">Удаление запаха с дивана</a>
+        <a href="himchistka-divanov.html">Химчистка дивана из велюра</a>
+        <a href="himchistka-divanov.html">Химчистка дивана из рогожки</a>
+        <a href="himchistka-divanov.html">Химчистка дивана из букле</a>
+        <a href="himchistka-divanov.html">Химчистка кожаного дивана</a>
+        <a href="himchistka-matrasov.html">Химчистка матраса на дому</a>
+        <a href="himchistka-matrasov.html">Чистка матраса от пятен</a>
+        <a href="himchistka-matrasov.html">Химчистка детского матраса</a>
+        <a href="himchistka-matrasov.html">Удаление запаха с матраса</a>
+        <a href="himchistka-matrasov.html">Чистка ортопедического матраса</a>
+        <a href="himchistka-kresel-i-stulev.html">Химчистка кресла</a>
+        <a href="himchistka-kresel-i-stulev.html">Химчистка стульев</a>
+        <a href="himchistka-kresel-i-stulev.html">Химчистка офисных кресел</a>
+        <a href="himchistka-kresel-i-stulev.html">Химчистка обеденных стульев</a>
+        <a href="himchistka-kresel-i-stulev.html">Чистка компьютерного кресла</a>
+        <a href="himchistka-kresel-i-stulev.html">Химчистка пуфа и банкетки</a>
+        <a href="himchistka-kovrov.html">Химчистка ковров на дому</a>
+        <a href="himchistka-kovrov.html">Чистка ковролина</a>
+        <a href="himchistka-kovrov.html">Химчистка ковролина в офисе</a>
+        <a href="himchistka-kovrov.html">Чистка ковра от пятен</a>
+        <a href="himchistka-shtor.html">Химчистка штор без снятия</a>
+        <a href="himchistka-shtor.html">Чистка штор на дому</a>
+        <a href="himchistka-shtor.html">Чистка портьер и тюля</a>
+        <a href="himchistka-shtor.html">Химчистка римских штор</a>
+        <a href="himchistka-dlya-biznesa.html">Химчистка мебели в офисе</a>
+        <a href="himchistka-dlya-biznesa.html">Химчистка мебели в ресторане</a>
+        <a href="himchistka-dlya-biznesa.html">Химчистка мебели в кафе</a>
+        <a href="himchistka-dlya-biznesa.html">Химчистка для юрлиц</a>
+        <a href="himchistka-dlya-biznesa.html">Чистка мебели в гостинице</a>
+        <a href="ceny.html">Цены на химчистку мебели</a>
+        <a href="ceny.html">Выведение сложных пятен</a>
+        <a href="ceny.html">Антибактериальная обработка мебели</a>
+        <a href="ceny.html">Нейтрализация запахов</a>
+        <a href="ceny.html">Гидрофобная защита мебели</a>
+        <a href="ceny.html">Химчистка мебели недорого</a>
+        <a href="kontakty.html">Химчистка мебели в Москве</a>
+        <a href="kontakty.html">Химчистка мебели в Одинцово</a>
+        <a href="kontakty.html">Химчистка мебели в Московской области</a>
+        <a href="kontakty.html">Выездная химчистка мебели</a>
+        <a href="kontakty.html">Химчистка мебели у ВДНХ</a>
+      </div>
     </div>
     <div class="foot-legal">
       <span>© 2026 «Чисто Алексей» · ИП Гарифуллина Лилия Харисовна · ИНН {INN} · ОГРНИП {OGRNIP}</span>
@@ -179,7 +249,7 @@ def page(s):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009f">
+<link rel="stylesheet" href="css/site.css?v=1009h">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 {METRIKA}</head>
 <body>
@@ -299,7 +369,7 @@ def simple_page(slug, title, desc, h1, body):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009f">
+<link rel="stylesheet" href="css/site.css?v=1009h">
 {METRIKA}</head>
 <body>
 <header>
