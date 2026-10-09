@@ -928,3 +928,6 @@
   .hp-write span{display:inline !important;}
 }
 @media (min-width:761px){.wsheet{display:none;}}
+
+/* фото на первом экране: верх на уровне заголовка */
+@media (min-width:900px){.hero{align-items:start;}.hero-photo{align-self:start;margin-top:8px !important;}}
