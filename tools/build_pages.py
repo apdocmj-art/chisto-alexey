@@ -32,7 +32,7 @@ SERVICES = [
     "Химчистка дивана на дому убирает пятна от кофе, чая, вина, еды, следы от рук на подлокотниках, «засаленность» сидений и неприятный запах. Если пятно сложное (кровь, чернила, слайм, жир), Алексей выводит его отдельно."]),
    ("Почему экстракторная чистка",[
     "Экстрактор подаёт моющий раствор в ткань и сразу вытягивает его вместе с грязью. Поэтому чистка проходит глубоко, а не только по поверхности, и в обивке не остаётся лишней воды и моющего средства."])],
-  photos=[("images/ba-9.jpg","Диван до и после химчистки"),("images/ba-12.jpg","Угловой диван: химчистка на дому"),("images/ba-3.jpg","Диван до и после химчистки"),("images/ba-4.jpg","Светлый диван: выведение пятен"),("images/ba-11.jpg","Диван с пуфом до и после химчистки")],
+  photos=[("images/ba-12.jpg","Угловой диван: химчистка на дому"),("images/ba-3.jpg","Диван до и после химчистки"),("images/ba-4.jpg","Светлый диван: выведение пятен"),("images/ba-11.jpg","Диван с пуфом до и после химчистки")],
   faq=[("Сколько стоит химчистка дивана?","Базовая цена: от 5 000 ₽ за двухместный, от 6 000 ₽ за трёхместный и от 7 000 ₽ за угловой диван. Точную стоимость Алексей называет на месте, после осмотра степени загрязнения."),
        ("Сколько сохнет диван после химчистки?","Зависит от ткани, влажности и погоды, обычно от нескольких часов до суток. Ускорить высыхание можно с помощью сушки (2 500 ₽/час)."),
        ("Нужно ли снимать чехлы или подушки?","Нет. Алексей чистит диван целиком на месте: сиденья, спинку, подлокотники и съёмные подушки."),
@@ -179,7 +179,7 @@ def page(s):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009e">
+<link rel="stylesheet" href="css/site.css?v=1009f">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 {METRIKA}</head>
 <body>
@@ -299,7 +299,7 @@ def simple_page(slug, title, desc, h1, body):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009e">
+<link rel="stylesheet" href="css/site.css?v=1009f">
 {METRIKA}</head>
 <body>
 <header>
