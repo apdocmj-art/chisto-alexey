@@ -948,3 +948,7 @@
 @media (max-width:760px){.brand-logo-wrap img{height:32px !important;}}
 @media (max-width:440px){.brand-logo-wrap img{height:28px !important;}}
 .headrow{min-height:82px;}@media (max-width:760px){.headrow{min-height:70px;}}
+/* капелька без «рамки»: drop-shadow на анимации давал прямоугольник, заменён на тень под ногами */
+.mascot-link img,.news-hero-mascot{filter:none !important;}
+.mascot-link{position:relative;}
+.mascot-link::after{content:"";position:absolute;left:18%;right:18%;bottom:-2px;height:10px;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.28),rgba(0,0,0,0));z-index:-1;}
