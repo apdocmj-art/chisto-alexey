@@ -941,3 +941,10 @@
 }
 @media (min-width:1081px) and (max-width:1500px){.hp-call span{display:none;}.hp-call{width:42px;padding:0;justify-content:center;}}
 @media (min-width:1081px) and (max-width:1300px){.headrow{gap:14px;}.headrow > nav{gap:14px;}nav a{font-size:.85rem;}.hp-tg span{display:none;}.hp-tg{width:42px;padding:0;justify-content:center;}}
+/* логотип в шапке: обрезан по краям, крупнее, по центру по высоте */
+.brand{align-self:center;}
+.brand-logo-wrap{height:auto !important;width:auto !important;overflow:visible;display:flex;align-items:center;}
+.brand-logo-wrap img{position:static !important;height:40px !important;width:auto !important;max-width:none !important;display:block;}
+@media (max-width:760px){.brand-logo-wrap img{height:32px !important;}}
+@media (max-width:440px){.brand-logo-wrap img{height:28px !important;}}
+.headrow{min-height:82px;}@media (max-width:760px){.headrow{min-height:70px;}}
