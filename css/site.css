@@ -952,3 +952,7 @@
 .mascot-link img,.news-hero-mascot{filter:none !important;}
 .mascot-link{position:relative;}
 .mascot-link::after{content:"";position:absolute;left:18%;right:18%;bottom:-2px;height:10px;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.28),rgba(0,0,0,0));z-index:-1;}
+.mascot-link{touch-action:none;cursor:grab;-webkit-user-drag:none;user-select:none;}
+.mascot.dragging .mascot-link{cursor:grabbing;transform:scale(1.08);}
+.mascot-link img,.video-widget img,.video-widget video{-webkit-user-drag:none;}
+.video-widget{cursor:grab;}.video-widget.dragging{cursor:grabbing;}
