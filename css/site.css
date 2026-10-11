@@ -931,3 +931,13 @@
 
 /* фото на первом экране: верх на уровне заголовка */
 @media (min-width:900px){.hero{align-items:start;}.hero-photo{align-self:start;margin-top:8px !important;}}
+/* шапка ПК: равные отступы — логотип | меню по центру | кнопки */
+@media (min-width:1081px){
+  .headrow{gap:24px;}
+  .headrow > nav{flex:1;justify-content:center;gap:clamp(16px,1.9vw,30px);}
+  .head-cta{gap:8px;}
+  .hpill{height:42px;padding:0 14px;font-size:.88rem;}
+  .hp-mail,.hp-call:not(:has(span:not([style*="none"]))){width:42px;}
+}
+@media (min-width:1081px) and (max-width:1500px){.hp-call span{display:none;}.hp-call{width:42px;padding:0;justify-content:center;}}
+@media (min-width:1081px) and (max-width:1300px){.headrow{gap:14px;}.headrow > nav{gap:14px;}nav a{font-size:.85rem;}.hp-tg span{display:none;}.hp-tg{width:42px;padding:0;justify-content:center;}}
