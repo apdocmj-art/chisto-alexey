@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009q">
+<link rel="stylesheet" href="css/site.css?v=1009r">
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
 (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
@@ -384,7 +384,7 @@ ym(113579876,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webv
 })();
 </script>
 <div class="mascot" id="mascot">
-  <a class="mascot-link" href="news.html" aria-label="Новости Чисто Алексей"><img src="images/mascot-still2.png" data-anim="images/mascot2.webp" alt="Капелька, талисман «Чисто Алексей»" width="260" height="349"></a>
+  <a class="mascot-link" href="news.html" aria-label="Новости Чисто Алексей"><img src="images/mascot-still3.png" data-anim="images/mascot3.webp" alt="Капелька, талисман «Чисто Алексей»" width="260" height="349"></a>
   <a class="mascot-bubble" href="news.html">Свежие новости Алексея!<small>Смотреть →</small><button class="mascot-close" type="button" aria-label="Скрыть">✕</button></a>
 </div>
 <script>
@@ -398,6 +398,16 @@ ym(113579876,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webv
     setTimeout(function(){ m.classList.add('show'); },2500);
     if(window.innerWidth<=600) setTimeout(function(){ m.classList.remove('show'); },9000);
   });
+  // перетаскивание капельки мышью и пальцем
+  var link=m.querySelector('.mascot-link'),dg=null,mv=false;
+  function put(x,y){var w=m.offsetWidth,h=m.offsetHeight;x=Math.min(Math.max(4,x),innerWidth-w-4);y=Math.min(Math.max(4,y),innerHeight-h-4);m.style.left=x+'px';m.style.top=y+'px';m.style.bottom='auto';m.style.right='auto';}
+  try{var sp=JSON.parse(localStorage.getItem('mascotPos')||'null');if(sp)put(sp.x*innerWidth,sp.y*innerHeight);}catch(_){}
+  link.addEventListener('dragstart',function(e){e.preventDefault();});
+  link.addEventListener('pointerdown',function(e){if(e.pointerType==='mouse'){if(e.button!==0)return;e.preventDefault();}var r=m.getBoundingClientRect();dg={id:e.pointerId,sx:e.clientX,sy:e.clientY,dx:e.clientX-r.left,dy:e.clientY-r.top};mv=false;});
+  addEventListener('pointermove',function(e){if(!dg||e.pointerId!==dg.id)return;if(!mv&&Math.hypot(e.clientX-dg.sx,e.clientY-dg.sy)<6)return;if(!mv){mv=true;m.classList.add('dragging');m.classList.remove('show');}e.preventDefault();put(e.clientX-dg.dx,e.clientY-dg.dy);},{passive:false});
+  function endM(e){if(!dg||e.pointerId!==dg.id)return;dg=null;m.classList.remove('dragging');if(mv){var r=m.getBoundingClientRect();try{localStorage.setItem('mascotPos',JSON.stringify({x:r.left/innerWidth,y:r.top/innerHeight}));}catch(_){}}}
+  addEventListener('pointerup',endM);addEventListener('pointercancel',endM);
+  link.addEventListener('click',function(e){if(mv){mv=false;e.preventDefault();}});
   m.querySelector('.mascot-close').addEventListener('click',function(e){
     e.preventDefault(); e.stopPropagation(); m.classList.add('hidden');
     try{ sessionStorage.setItem('mascotHidden','1'); }catch(_){}
@@ -437,7 +447,9 @@ ym(113579876,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webv
     widget.style.left=p[0]+'px';widget.style.top=p[1]+'px';widget.style.right='auto';widget.style.bottom='auto';
   }
   try{var saved=JSON.parse(localStorage.getItem('vwPos')||'null');if(saved)place(saved.x*window.innerWidth,saved.y*window.innerHeight);}catch(e){}
+  widget.addEventListener('dragstart',function(e){e.preventDefault();});
   widget.addEventListener('pointerdown',function(e){
+    if(e.pointerType==='mouse'){if(e.button!==0)return;e.preventDefault();}
     var r=widget.getBoundingClientRect();
     drag={id:e.pointerId,sx:e.clientX,sy:e.clientY,dx:e.clientX-r.left,dy:e.clientY-r.top};moved=false;
   });
