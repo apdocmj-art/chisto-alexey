@@ -250,13 +250,13 @@ def page(s):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009o">
+<link rel="stylesheet" href="css/site.css?v=1009p">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 {METRIKA}</head>
 <body>
 <header>
   <div class="wrap headrow">
-    <a class="brand" href="index.html"><span class="brand-logo-wrap"><img src="images/logo.png" alt="Чисто Алексей"></span></a>
+    <a class="brand" href="index.html"><span class="brand-logo-wrap"><img src="images/logo-head.png" width="318" height="120" alt="Чисто Алексей"></span></a>
 {NAV}
     <div class="head-cta">
       <a class="hpill hp-max" href="https://max.ru/u/f9LHodD0cOJBBJzUkjHrh1dTQiRNRyNseOy4CKAZ5mCJjNtTgv5gJF8CsuI" target="_blank" rel="noopener" aria-label="Оставить заявку в MAX"><img class="max-ico" src="/images/max-logo.png" width="20" height="20" alt="" aria-hidden="true"><span>Заявка в MAX</span></a>
@@ -378,12 +378,12 @@ def simple_page(slug, title, desc, h1, body):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009o">
+<link rel="stylesheet" href="css/site.css?v=1009p">
 {METRIKA}</head>
 <body>
 <header>
   <div class="wrap headrow">
-    <a class="brand" href="index.html"><span class="brand-logo-wrap"><img src="images/logo.png" alt="Чисто Алексей"></span></a>
+    <a class="brand" href="index.html"><span class="brand-logo-wrap"><img src="images/logo-head.png" width="318" height="120" alt="Чисто Алексей"></span></a>
 {NAV}
     <div class="head-cta">
       <a class="hpill hp-max" href="https://max.ru/u/f9LHodD0cOJBBJzUkjHrh1dTQiRNRyNseOy4CKAZ5mCJjNtTgv5gJF8CsuI" target="_blank" rel="noopener" aria-label="Оставить заявку в MAX"><img class="max-ico" src="/images/max-logo.png" width="20" height="20" alt="" aria-hidden="true"><span>Заявка в MAX</span></a>
