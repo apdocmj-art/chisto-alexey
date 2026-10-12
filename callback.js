@@ -86,3 +86,21 @@
     .finally(function(){btn.disabled=false;btn.textContent='Жду звонка';});
   });
 })();
+
+/* уведомление о cookie: показывается один раз */
+(function(){
+  try{if(localStorage.getItem('cookieOk'))return;}catch(e){}
+  var css='.ck-bar{position:fixed;left:50%;bottom:16px;transform:translate(-50%,20px);z-index:1050;width:calc(100% - 24px);max-width:720px;background:#0B2A3E;color:#E6F1F4;border:1px solid rgba(47,208,202,.35);border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:14px;box-shadow:0 12px 40px rgba(0,0,0,.35);font-size:.88rem;line-height:1.45;opacity:0;transition:.3s}'+
+  '.ck-bar.show{opacity:1;transform:translate(-50%,0)}'+
+  '.ck-bar a{color:#2FD0CA;text-decoration:underline}'+
+  '.ck-ok{flex:none;border:0;border-radius:12px;padding:11px 20px;font:inherit;font-weight:800;background:#2FD0CA;color:#062A2A;cursor:pointer}'+
+  '@media (max-width:600px){.ck-bar{flex-direction:column;align-items:stretch;gap:10px;bottom:10px;font-size:.82rem}.ck-ok{width:100%}}';
+  var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
+  function show(){
+    var b=document.createElement('div');b.className='ck-bar';b.setAttribute('role','region');b.setAttribute('aria-label','Уведомление о cookie');
+    b.innerHTML='<div>🍪 Мы используем файлы cookie и Яндекс Метрику, чтобы сайт работал удобнее. Продолжая пользоваться сайтом, вы соглашаетесь с <a href="privacy.html">политикой конфиденциальности</a>.</div><button type="button" class="ck-ok">Понятно</button>';
+    document.body.appendChild(b);setTimeout(function(){b.classList.add('show');},400);
+    b.querySelector('.ck-ok').onclick=function(){try{localStorage.setItem('cookieOk','1');}catch(e){}b.classList.remove('show');setTimeout(function(){b.remove();},300);};
+  }
+  if(document.body)show();else document.addEventListener('DOMContentLoaded',show);
+})();
