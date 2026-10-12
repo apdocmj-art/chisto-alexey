@@ -358,7 +358,7 @@ def page(s):
 </main>
 
 {FOOTER}
-<script src="/callback.js?v=1" defer></script>
+<script src="/callback.js?v=2" defer></script>
 </body>
 </html>
 '''
@@ -413,7 +413,7 @@ def simple_page(slug, title, desc, h1, body):
 </main>
 
 {FOOTER}
-<script src="/callback.js?v=1" defer></script>
+<script src="/callback.js?v=2" defer></script>
 </body>
 </html>
 '''
