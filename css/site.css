@@ -956,3 +956,7 @@
 .mascot.dragging .mascot-link{cursor:grabbing;transform:scale(1.08);}
 .mascot-link img,.video-widget img,.video-widget video{-webkit-user-drag:none;}
 .video-widget{cursor:grab;}.video-widget.dragging{cursor:grabbing;}
+/* кнопки первого экрана: ровная сетка 2×2 одинаковой ширины */
+.hero .hero-ctas{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:560px;}
+.hero .hero-ctas .btn{width:100%;justify-content:center;box-sizing:border-box;padding-inline:14px;white-space:nowrap;}
+@media (max-width:420px){.hero .hero-ctas{grid-template-columns:1fr;}}
