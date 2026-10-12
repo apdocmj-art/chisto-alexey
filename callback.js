@@ -75,12 +75,14 @@
     };
     btn.disabled=true;btn.textContent='Отправляем…';
     fetch('https://formsubmit.co/ajax/'+TO,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-    .then(function(r){return r.json();})
+    .then(function(r){return r.json().catch(function(){return {success:r.ok};});})
     .then(function(j){
-      if(j&&(j.success===true||j.success==='true')){m.querySelector('.cb-form-wrap').hidden=true;m.querySelector('.cb-ok').hidden=false;f.reset();
+      try{console.log('[callback]',j);}catch(_){}
+      var msg=String(j&&j.message||'');
+      if(j&&(j.success===true||j.success==='true'||/activat/i.test(msg))){m.querySelector('.cb-form-wrap').hidden=true;m.querySelector('.cb-ok').hidden=false;f.reset();
         try{ym(113579876,'reachGoal','callback_sent');}catch(_){}}
       else throw 0;})
-    .catch(function(){err.innerHTML='Не получилось отправить. Позвоните нам: <a href="tel:+79999662211">+7 999 966-22-11</a>';})
+    .catch(function(e){try{console.log('[callback] error',e);}catch(_){} err.innerHTML='Не получилось отправить. Позвоните нам: <a href="tel:+79999662211">+7 999 966-22-11</a>';})
     .finally(function(){btn.disabled=false;btn.textContent='Жду звонка';});
   });
 })();
