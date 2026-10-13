@@ -273,7 +273,7 @@ def page(s):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009u">
+<link rel="stylesheet" href="css/site.css?v=1009v">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 {METRIKA}</head>
 <body>
@@ -410,7 +410,7 @@ def simple_page(slug, title, desc, h1, body):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009u">
+<link rel="stylesheet" href="css/site.css?v=1009v">
 {METRIKA}</head>
 <body>
 <header>
@@ -544,7 +544,7 @@ SECTION_PAGES = [
    "Услуги и цены", services_part + "\n" + part("faq"), ""),
   ("raboty", "Работы: фото до и после химчистки мебели | Чисто Алексей",
    "Фото до и после химчистки диванов, кресел, стульев и ковролина с реальных выездов Алексея. Как проходит химчистка на дому.",
-   "Работы", part("results") + "\n" + part("process"), ""),
+   "Работы", part("results") + "\n" + part("live") + "\n" + part("process"), ""),
   ("otzyvy", "Отзывы о химчистке мебели «Чисто Алексей»",
    "Реальные отзывы клиентов с Яндекс.Карт о химчистке диванов, матрасов, ковролина и мебели в кафе.",
    "Отзывы", part("reviews"), part("reviews_script")),
