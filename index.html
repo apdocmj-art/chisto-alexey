@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009v">
+<link rel="stylesheet" href="css/site.css?v=1009w">
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
 (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
@@ -78,9 +78,28 @@ ym(113579876,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webv
       </div>
       <p class="hero-note">Пришлите фото мебели в Telegram или MAX: Алексей оценит стоимость ещё до выезда. <a href="ceny.html">Смотреть прайс</a></p>
     </div>
-    <div class="hero-photo">
-      <img src="images/hero-alexey-real.jpg" alt="Алексей после химчистки дивана у клиента дома" width="1200" height="1200" fetchpriority="high">
+    <div class="hero-photo hero-slider" id="heroSlider">
+      <div class="hs-track">
+        <img class="hs-img on" src="images/hero-alexey-real.jpg" alt="Алексей после химчистки дивана у клиента дома" width="1100" height="1100" fetchpriority="high">
+        <img class="hs-img" src="images/hero-s2.jpg" alt="Алексей чистит шторы без снятия" width="1100" height="1100" loading="lazy">
+        <img class="hs-img" src="images/hero-s3.jpg" alt="Алексей после химчистки матраса" width="1100" height="1100" loading="lazy">
+        <img class="hs-img" src="images/hero-s4.jpg" alt="Алексей чистит угловой диван" width="1100" height="1100" loading="lazy">
+        <img class="hs-img" src="images/hero-s5.jpg" alt="Алексей за работой с экстрактором" width="1100" height="1100" loading="lazy">
+      </div>
+      <button type="button" class="hs-nav hs-prev" aria-label="Предыдущее фото">‹</button>
+      <button type="button" class="hs-nav hs-next" aria-label="Следующее фото">›</button>
+      <div class="hs-dots"><button type="button" class="hs-dot on" aria-label="Фото 1"></button><button type="button" class="hs-dot" aria-label="Фото 2"></button><button type="button" class="hs-dot" aria-label="Фото 3"></button><button type="button" class="hs-dot" aria-label="Фото 4"></button><button type="button" class="hs-dot" aria-label="Фото 5"></button></div>
     </div>
+    <script>
+    (function(){var r=document.getElementById('heroSlider');if(!r)return;var im=r.querySelectorAll('.hs-img'),d=r.querySelectorAll('.hs-dot'),i=0,t;
+    function go(n){im[i].classList.remove('on');d[i].classList.remove('on');i=(n+im.length)%im.length;im[i].classList.add('on');d[i].classList.add('on');}
+    function auto(){clearInterval(t);t=setInterval(function(){go(i+1)},4000);}
+    d.forEach(function(b,k){b.onclick=function(){go(k);auto();};});
+    r.querySelector('.hs-prev').onclick=function(){go(i-1);auto();};r.querySelector('.hs-next').onclick=function(){go(i+1);auto();};
+    var x0=null;r.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+    r.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){go(i+(dx<0?1:-1));auto();}x0=null;});
+    r.addEventListener('mouseenter',function(){clearInterval(t)});r.addEventListener('mouseleave',auto);auto();})();
+    </script>
 
     <div class="trust">
       <div><b>Лично мастер</b><span>Работаете напрямую с Алексеем, без колл-центра и подрядчиков</span></div>
