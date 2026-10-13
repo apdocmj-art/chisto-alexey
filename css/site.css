@@ -964,3 +964,7 @@
 .hero .hero-ctas .btn-cb{background:#0B2A3E;color:#fff;border-color:#0B2A3E;}
 .hero .hero-ctas .btn-cb svg{color:#2FD0CA;}
 .hero .hero-ctas .btn-cb:hover{background:#123A54;border-color:#123A54;color:#fff;}
+/* SEO: H1 = «Химчистка мебели у вас дома · Москва · Одинцово · Подмосковье», слоган стал абзацем с тем же видом */
+.hero h1.where{font-size:inherit;line-height:normal;text-transform:none;font-family:inherit;letter-spacing:normal;}
+.hero .hero-title{font-family:"Oswald","Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.01em;text-wrap:balance;margin:0;font-weight:700;color:var(--ink);font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.16;}
+@media (min-width:900px){.hero .hero-title{font-size:clamp(2rem,3.4vw,3rem);}}
