@@ -988,3 +988,11 @@
 .hs-prev{left:10px}.hs-next{right:10px}
 .hero-slider:hover .hs-nav{opacity:1}
 @media (hover:none){.hs-nav{display:none}}
+/* первый экран: одно фото + плашки-факты */
+.hero-one{position:relative;overflow:hidden;aspect-ratio:1/1;}
+.hero-one img{width:100%;height:100%;object-fit:cover;display:block;}
+.hero-badges{position:absolute;left:14px;bottom:14px;margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;align-items:flex-start;}
+.hero-badges li{background:rgba(255,255,255,.94);color:#0F2533;border-radius:12px;padding:8px 14px;font-size:.95rem;box-shadow:0 6px 18px rgba(0,0,0,.18);border-left:4px solid #2FD0CA;}
+.hero-badges li:first-child{background:#2FD0CA;color:#062A2A;border-left-color:#0B2A3E;font-size:1.05rem;}
+@media (max-width:600px){.hero-badges{left:10px;bottom:10px;gap:6px}.hero-badges li{font-size:.8rem;padding:6px 10px}.hero-badges li:first-child{font-size:.9rem}}
+.hero .hero-ctas{max-width:560px;}
