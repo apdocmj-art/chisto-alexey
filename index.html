@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1019v">
+<link rel="stylesheet" href="css/site.css?v=1019t">
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
 (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
@@ -494,6 +494,10 @@ ym(113579876,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webv
 <div class="video-modal" id="vwModal">
   <div class="video-modal-inner">
     <button class="video-modal-close" id="vwClose" aria-label="Закрыть">&#10005;</button>
+    <div class="vw-tabs" role="tablist">
+      <button type="button" class="vw-tab active" data-src="video/do-posle.mp4" data-poster="video/do-posle.jpg">Диван до/после</button>
+      <button type="button" class="vw-tab" data-src="video/shtory.mp4" data-poster="video/shtory.jpg">Шторы</button>
+    </div>
     <video id="vwMainVideo" src="video/do-posle.mp4" poster="video/do-posle.jpg" controls playsinline></video>
   </div>
 </div>
@@ -503,6 +507,11 @@ ym(113579876,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webv
   var modal=document.getElementById('vwModal');
   var closeBtn=document.getElementById('vwClose');
   var mainVideo=document.getElementById('vwMainVideo');
+  [].forEach.call(document.querySelectorAll('.vw-tab'),function(t){t.addEventListener('click',function(){
+    if(t.classList.contains('active'))return;
+    [].forEach.call(document.querySelectorAll('.vw-tab'),function(x){x.classList.toggle('active',x===t);});
+    mainVideo.pause();mainVideo.poster=t.dataset.poster;mainVideo.src=t.dataset.src;mainVideo.play().catch(function(){});
+  });});
   // перетаскивание кружка с видео (мышь и палец)
   var widget=openBtn.closest('.video-widget');
   var drag=null, moved=false;
