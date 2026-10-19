@@ -929,8 +929,8 @@
 }
 @media (min-width:761px){.wsheet{display:none;}}
 
-/* фото на первом экране: верх на уровне заголовка */
-@media (min-width:900px){.hero{align-items:start;}.hero-photo{align-self:start;margin-top:8px !important;}}
+/* фото на первом экране: по центру относительно текста */
+@media (min-width:900px){.hero{align-items:center;}.hero-photo{align-self:center;margin-top:0 !important;}}
 /* шапка ПК: равные отступы — логотип | меню по центру | кнопки */
 @media (min-width:1081px){
   .headrow{gap:24px;}
