@@ -486,7 +486,8 @@ ym(113579876,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webv
   <div class="vw-foam" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
   <button class="video-widget-btn" id="vwOpen" aria-label="Смотреть видео работы Алексея">
     <div class="video-widget-media">
-      <video src="video/do-posle.mp4" poster="video/do-posle.jpg" muted loop autoplay playsinline></video>
+      <video id="vwCircle" src="video/do-posle.mp4" poster="video/do-posle.jpg" muted loop autoplay playsinline></video>
+      <script>(function(){var v=document.getElementById("vwCircle");if(!v)return;function s(){v.playbackRate=0.5;}s();v.addEventListener("loadedmetadata",s);v.addEventListener("play",s);})();</script>
     </div>
     <span class="video-widget-badge">Видео</span>
   </button>
