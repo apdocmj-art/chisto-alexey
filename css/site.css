@@ -1002,3 +1002,7 @@
 .svc-video{display:grid;grid-template-columns:1fr minmax(240px,340px);gap:28px;align-items:center;}
 .svc-video video{width:100%;aspect-ratio:9/16;border-radius:16px;background:#0B2A3E;box-shadow:var(--shadow);object-fit:cover;}
 @media(max-width:760px){.svc-video{grid-template-columns:1fr;}.svc-video video{max-width:340px;margin:0 auto;}}
+
+.vw-tabs{display:flex;gap:8px;margin-bottom:10px;padding-right:44px;}
+.vw-tab{flex:1;border:1.5px solid rgba(255,255,255,.5);background:transparent;color:#fff;font:600 .9rem/1 Manrope,sans-serif;padding:10px 8px;border-radius:999px;cursor:pointer;}
+.vw-tab.active{background:#2EC4B6;border-color:#2EC4B6;color:#0B2A3E;}
