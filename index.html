@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009x">
+<link rel="stylesheet" href="css/site.css?v=1019v">
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
 (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
@@ -116,10 +116,18 @@ ym(113579876,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webv
   <section id="live">
     <div class="wrap">
       <div class="section-head">
-        <h2>Живые фото с заказов</h2>
+        <h2>Живые фото и видео с заказов</h2>
         <p class="section-note">Без обработки и нейросетей: Алексей на выездах, наша точка и результаты, снятые на телефон.</p>
       </div>
       <div class="gallery live-gallery">
+        <figure class="vid">
+          <div class="frame"><video src="video/do-posle.mp4" poster="video/do-posle.jpg" controls playsinline preload="none"></video></div>
+          <figcaption>Диван до и после: весь процесс за 25 секунд</figcaption>
+        </figure>
+        <figure class="vid">
+          <div class="frame"><video src="video/shtory.mp4" poster="video/shtory.jpg" controls playsinline preload="none"></video></div>
+          <figcaption>Химчистка штор без снятия с карниза</figcaption>
+        </figure>
         <figure>
           <div class="frame"><img src="images/live-alexey-vyezd.jpg" alt="Алексей приехал на заказ с экстрактором и средствами" loading="lazy"></div>
           <figcaption>Алексей приехал на заказ с экстрактором и средствами</figcaption>
@@ -478,7 +486,7 @@ ym(113579876,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webv
   <div class="vw-foam" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
   <button class="video-widget-btn" id="vwOpen" aria-label="Смотреть видео работы Алексея">
     <div class="video-widget-media">
-      <video src="video/work-video.mp4" poster="video/poster.jpg" muted loop autoplay playsinline></video>
+      <video src="video/do-posle.mp4" poster="video/do-posle.jpg" muted loop autoplay playsinline></video>
     </div>
     <span class="video-widget-badge">Видео</span>
   </button>
@@ -486,7 +494,7 @@ ym(113579876,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webv
 <div class="video-modal" id="vwModal">
   <div class="video-modal-inner">
     <button class="video-modal-close" id="vwClose" aria-label="Закрыть">&#10005;</button>
-    <video id="vwMainVideo" src="video/work-video.mp4" poster="video/poster.jpg" controls playsinline></video>
+    <video id="vwMainVideo" src="video/do-posle.mp4" poster="video/do-posle.jpg" controls playsinline></video>
   </div>
 </div>
 <script>
