@@ -26,6 +26,7 @@ SERVICES = [
   h1="Химчистка диванов на дому",
   lede="Профессиональная химчистка дивана на дому в Москве, Одинцово и Московской области. Алексей приезжает со своим экстрактором и чистит обивку прямо у вас дома, без вывоза мебели и без резкого запаха химии.",
   img="images/ba-12.jpg", img_alt="Химчистка углового дивана до и после",
+  video=("video/do-posle.mp4","video/do-posle.jpg","Видео: диван до и после","Подготовка, глубокая чистка экстрактором и результат. Снято на реальном заказе."),
   prices=[("Двухместный диван","от 5 000 ₽"),("Трёхместный диван","от 6 000 ₽"),("Угловой диван (4 места)","от 7 000 ₽"),("Выведение сложных пятен","от 500 ₽"),("Антибактериальная обработка","+1 000 ₽"),("Обивка из флока","+100% к стоимости")],
   text=[("Какие диваны чистим",[
     "Чистим прямые и угловые диваны, диваны-кровати, модульные диваны и диваны с отдельными подушками. Работаем с велюром, рогожкой, микрофиброй, шенилом, букле и другими тканями, состав подбирается под тип обивки.",
@@ -104,6 +105,7 @@ SERVICES = [
   h1="Химчистка штор без снятия",
   lede="Чистим шторы и портьеры прямо на карнизе: снимать, стирать и гладить не нужно. Подходит для плотных и тяжёлых штор, которые неудобно снимать и везти в химчистку.",
   img="images/work-curtains.jpg", img_alt="Алексей чистит шторы без снятия",
+  video=("video/shtory.mp4","video/shtory.jpg","Видео: шторы без снятия","Алексей чистит шторы прямо на карнизе: без снятия, стирки и глажки."),
   prices=[("Шторы без снятия, одна сторона","от 500 ₽/м²"),("Выведение сложных пятен","от 500 ₽"),("Нейтрализация запахов","от 1 500 ₽")],
   text=[("Как это работает",[
     "Экстрактор с насадкой для вертикальных поверхностей проходит ткань сверху вниз, подавая раствор и сразу забирая его вместе с пылью и грязью. Шторы остаются на месте и не теряют форму.",
@@ -248,6 +250,14 @@ def page(s):
     text = '\n'.join(f'      <h2>{esc(h)}</h2>\n' + '\n'.join(f'      <p>{esc(p)}</p>' for p in ps) for h, ps in s["text"])
     photos = '\n'.join(f'        <figure><div class="frame"><img src="{src}" alt="{esc(a)}" loading="lazy"></div><figcaption>{esc(a)}</figcaption></figure>' for src, a in s["photos"])
     faq = '\n'.join(f'        <details{" open" if i == 0 else ""}><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for i, (q, a) in enumerate(s["faq"]))
+    v = s.get("video")
+    video = (f'''  <section>
+    <div class="wrap svc-video">
+      <div><h2>{esc(v[2])}</h2><p>{esc(v[3])}</p></div>
+      <video src="{v[0]}" poster="{v[1]}" controls playsinline preload="none"></video>
+    </div>
+  </section>
+''') if v else ""
     others = '\n'.join(f'        <a href="{o["slug"]}.html">{esc(o["menu"])}</a>' for o in SERVICES if o is not s)
     ld = {"@context": "https://schema.org", "@graph": [
         {"@type": "Service", "name": s["h1"], "serviceType": s["menu"], "description": s["desc"], "url": url,
@@ -273,7 +283,7 @@ def page(s):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009x">
+<link rel="stylesheet" href="css/site.css?v=1019v">
 <script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 {METRIKA}</head>
 <body>
@@ -323,7 +333,7 @@ def page(s):
       <p class="price-note"><a href="ceny.html" style="color:inherit">Весь прайс</a> · Наличный и безналичный расчёт</p>
     </div>
   </section>
-
+{video}
   <section>
     <div class="wrap"><div class="svc-text">
 {text}
@@ -410,7 +420,7 @@ def simple_page(slug, title, desc, h1, body):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1009x">
+<link rel="stylesheet" href="css/site.css?v=1019v">
 {METRIKA}</head>
 <body>
 <header>
